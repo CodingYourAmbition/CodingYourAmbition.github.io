@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>hexo博客同步步骤</title>
-    <link href="/2024/04/16/hexo%E5%90%8C%E6%AD%A5%E6%AD%A5%E9%AA%A4/"/>
-    <url>/2024/04/16/hexo%E5%90%8C%E6%AD%A5%E6%AD%A5%E9%AA%A4/</url>
+    <title>Hexo博客同步步骤</title>
+    <link href="/hexo%E5%90%8C%E6%AD%A5%E6%AD%A5%E9%AA%A4/"/>
+    <url>/hexo%E5%90%8C%E6%AD%A5%E6%AD%A5%E9%AA%A4/</url>
     
-    <content type="html"><![CDATA[<h2 id="hexo博客同步步骤"><a href="#hexo博客同步步骤" class="headerlink" title="hexo博客同步步骤"></a>hexo博客同步步骤</h2><ol><li>在新电脑上拉取<a href="https://github.com/CodingYourAmbition/CodingYourAmbition.github.io.git">hexosync分支代码</a></li><li>安装nodejs,git</li><li>安装Hexo和Git插件 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure></li><li>根据package.json安装依赖 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm i<br></code></pre></td></tr></table></figure></li><li>运行<code>hexo g</code>，渲染生成，运行<code>hexo s</code>，预览网站</li><li>运行<code>hexo new post</code>编写新文章，或者修改博客其他内容</li><li>将新内容提交推送到Github，并运行<code>hexo g -d</code>进行部署</li><li>新内容自动部署到Github的main分支， 在<code>codingyourambition.github.io</code>查看内容</li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="博客同步步骤"><a href="#博客同步步骤" class="headerlink" title="博客同步步骤"></a>博客同步步骤</h2><ol><li>在新电脑上拉取<a href="https://github.com/CodingYourAmbition/CodingYourAmbition.github.io.git">hexosync分支代码</a></li><li>安装nodejs,git</li><li>安装Hexo和Git插件 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure></li><li>根据package.json安装依赖 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm i<br></code></pre></td></tr></table></figure></li><li>运行<code>hexo g</code>，渲染生成，运行<code>hexo s</code>，预览网站</li><li>运行<code>hexo new post</code>编写新文章，或者修改博客其他内容</li><li>将新内容提交推送到Github，并运行<code>hexo g -d</code>进行部署</li><li>新内容自动部署到Github的main分支， 在<code>codingyourambition.github.io</code>查看内容</li></ol>]]></content>
     
     
     <categories>
@@ -30,8 +30,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="/2024/04/16/hello-world/"/>
-    <url>/2024/04/16/hello-world/</url>
+    <link href="/hello-world/"/>
+    <url>/hello-world/</url>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -43,8 +43,8 @@
   
   <entry>
     <title>synctest</title>
-    <link href="/2024/04/11/synctest/"/>
-    <url>/2024/04/11/synctest/</url>
+    <link href="/synctest/"/>
+    <url>/synctest/</url>
     
     <content type="html"><![CDATA[<h2 id="测试多端同步"><a href="#测试多端同步" class="headerlink" title="测试多端同步"></a>测试多端同步</h2>]]></content>
     
@@ -68,8 +68,8 @@
   
   <entry>
     <title>测试文章</title>
-    <link href="/2024/04/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
-    <url>/2024/04/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
+    <link href="/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
+    <url>/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
     
     <content type="html"><![CDATA[<p>s1mple远古头像</p><img src="/2024/04/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/ackermen.jpg" class="" title="阿克曼">]]></content>
     
