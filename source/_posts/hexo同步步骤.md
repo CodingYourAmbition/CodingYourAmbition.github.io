@@ -1,12 +1,13 @@
 ---
-title: hexo博客同步步骤
+title: Hexo博客同步步骤
 date: 2024-04-16 13:32:59
+excerpt: Hexo博客同步步骤
 tags: 
   - sync
 categories:
   - 博客
 ---
-## hexo博客同步步骤
+## 博客同步步骤
 1. 在新电脑上拉取[hexosync分支代码](https://github.com/CodingYourAmbition/CodingYourAmbition.github.io.git)
 2. 安装nodejs,git
 3. 安装Hexo和Git插件
