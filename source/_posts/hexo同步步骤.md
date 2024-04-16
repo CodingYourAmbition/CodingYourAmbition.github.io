@@ -20,7 +20,7 @@ categories:
     ```
 5. 运行`hexo g`，渲染生成，运行`hexo s`，预览网站
 7. 运行`hexo new post`编写新文章，或者修改博客其他内容
-8. 将新内容提交推送到Github，运行`hexo g -d`
+8. 将新内容提交推送到Github，并运行`hexo g -d`进行部署
 9. 新内容自动部署到Github的main分支， 在`codingyourambition.github.io`查看内容
 
    
