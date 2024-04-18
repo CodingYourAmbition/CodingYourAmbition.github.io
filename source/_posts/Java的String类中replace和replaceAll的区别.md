@@ -5,6 +5,7 @@ tags:
   - String
 categories:
   - Java
+excerpt: Java的String类中replace和replaceAll的区别
 ---
 > In java.lang.String, the replace method either takes a pair of char's or a pair of CharSequence's (which String is implementing, so it'll happily take a pair of String's). The replace method will replace all occurrences of a char or CharSequence.
 On the other hand, the first String arguments of replaceFirst and replaceAll are regular expressions (regex).

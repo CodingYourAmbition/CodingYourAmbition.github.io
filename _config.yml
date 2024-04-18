@@ -104,5 +104,5 @@ deploy:
   type: git
   repo: https://github.com/CodingYourAmbition/CodingYourAmbition.github.io.git
   branch: main
-  token: github_pat_11BES5B2I0X06gZx6tGtso_fMhtfjeCNb1S7IiEDmeqH7SQIahDM1p5tH8eFO8gRANSMSYGFFFCJXPu
+  token: github
 
