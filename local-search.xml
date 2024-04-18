@@ -8,7 +8,7 @@
     <link href="/Java%E7%9A%84String%E7%B1%BB%E4%B8%ADreplace%E5%92%8CreplaceAll%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <url>/Java%E7%9A%84String%E7%B1%BB%E4%B8%ADreplace%E5%92%8CreplaceAll%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     
-    <content type="html"><![CDATA[<p>In java.lang.String, the replace method either takes a pair of char’s or a pair of CharSequence’s (which String is implementing, so it’ll happily take a pair of String’s). The replace method will replace all occurrences of a char or CharSequence.<br>On the other hand, the first String arguments of replaceFirst and replaceAll are regular expressions (regex).<br>Using the wrong function can lead to subtle bugs.</p><p>Relevant sections from java.lang.String:</p><p>String replace(char oldChar, char newChar)<br>Returns a new string resulting from replacing all occurrences of oldChar in this string with newChar.</p><p>String replace(CharSequence target, CharSequence replacement)<br>Replaces each substring of this string that matches the literal target sequence with the specified literal replacement sequence.</p><p>String replaceAll(String regex, String replacement)<br>Replaces each substring of this string that matches the given regular expression with the given replacement.</p><p>String replaceFirst(String regex, String replacement)<br>Replaces the first substring of this string that matches the given regular expression with the given replacement.</p><p><a href="https://stackoverflow.com/questions/10827872/difference-between-string-replace-and-replaceall" title="来自">from</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>In java.lang.String, the replace method either takes a pair of char’s or a pair of CharSequence’s (which String is implementing, so it’ll happily take a pair of String’s). The replace method will replace all occurrences of a char or CharSequence.<br>On the other hand, the first String arguments of replaceFirst and replaceAll are regular expressions (regex).<br>Using the wrong function can lead to subtle bugs.</p></blockquote><h3 id="Relevant-sections-from-java-lang-String"><a href="#Relevant-sections-from-java-lang-String" class="headerlink" title="Relevant sections from java.lang.String:"></a>Relevant sections from java.lang.String:</h3><ul><li><p>String replace(char oldChar, char newChar)<br>Returns a new string resulting from replacing all occurrences of oldChar in this string with newChar.</p></li><li><p>String replace(CharSequence target, CharSequence replacement)<br>Replaces each substring of this string that matches the literal target sequence with the specified literal replacement sequence.</p></li><li><p>String replaceAll(String regex, String replacement)<br>Replaces each substring of this string that matches the given regular expression with the given replacement.</p></li><li><p>String replaceFirst(String regex, String replacement)<br>Replaces the first substring of this string that matches the given regular expression with the given replacement.</p></li></ul><p><a href="https://stackoverflow.com/questions/10827872/difference-between-string-replace-and-replaceall" title="来自">from</a></p>]]></content>
     
     
     <categories>
@@ -23,6 +23,19 @@
       <tag>String</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/hello-world/"/>
+    <url>/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
     
   </entry>
   
@@ -48,19 +61,6 @@
       <tag>sync</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/hello-world/"/>
-    <url>/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
@@ -96,7 +96,7 @@
     <link href="/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
     <url>/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
     
-    <content type="html"><![CDATA[<p>s1mple远古头像</p><img src="/2024/04/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/ackermen.jpg" class="" title="阿克曼">]]></content>
+    <content type="html"><![CDATA[<p>s1mple远古头像</p><img src="/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/ackermen.jpg" class="" title="阿克曼">]]></content>
     
     
     <categories>
