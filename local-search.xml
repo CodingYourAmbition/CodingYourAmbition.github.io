@@ -4,6 +4,83 @@
   
   
   <entry>
+    <title>nvm常用命令</title>
+    <link href="/nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">nvm off                     // 禁用node.js版本管理(不卸载任何东西)<br>nvm on                      // 启用node.js版本管理<br>nvm install &lt;version&gt;       // 安装node.js的命名 version是版本号 例如：nvm install 8.12.0<br>nvm uninstall &lt;version&gt;     // 卸载node.js是的命令，卸载指定版本的nodejs，当安装失败时卸载使用<br>nvm ls                      // 显示所有安装的node.js版本<br>nvm list available          // 显示可以安装的所有node.js的版本<br>nvm use &lt;version&gt;           // 切换到使用指定的nodejs版本<br>nvm v                       // 显示nvm版本<br>nvm install stable          // 安装最新稳定版<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nvm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>npm更新升级</title>
+    <link href="/npm%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7/"/>
+    <url>/npm%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7/</url>
+    
+    <content type="html"><![CDATA[<p>1.查看<code>npm</code>当前版本</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -v<br></code></pre></td></tr></table></figure><p>2.清理<code>npm</code>缓存数据</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm cache clean --force<br></code></pre></td></tr></table></figure><p>3.更新到最新版本</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm install -g npm<br></code></pre></td></tr></table></figure><p>4.更新到指定版本</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -g install npm@10.4.0<br></code></pre></td></tr></table></figure><p>或者</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm i npm@10.4.0 -g<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>npm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>nvm&amp;npm更新淘宝镜像源</title>
+    <link href="/nvm%E6%9B%B4%E6%96%B0%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E6%BA%90/"/>
+    <url>/nvm%E6%9B%B4%E6%96%B0%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E6%BA%90/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>淘宝原来的npm镜像网站现在已经更换到了<a href="https://npmmirror.com/">新淘宝镜像站</a>，为此，nvm和npm的配置也需要更新：</p></blockquote><h3 id="nvm目录下settings-txt"><a href="#nvm目录下settings-txt" class="headerlink" title="nvm目录下settings.txt"></a>nvm目录下settings.txt</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">node_mirror: http://npmmirror.com/mirrors/node/ <br>npm_mirror: http://npmmirror.com/mirrors/npm/<br></code></pre></td></tr></table></figure><h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">// 1. 清空缓存<br>npm cache clean --force<br>// 2. 切换新源<br>npm config set registry https://registry.npmmirror.com<br></code></pre></td></tr></table></figure><h3 id="推荐使用淘宝命令工具cnpm"><a href="#推荐使用淘宝命令工具cnpm" class="headerlink" title="推荐使用淘宝命令工具cnpm"></a>推荐使用淘宝命令工具cnpm</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">//安装cnpm<br>npm install -g cnpm --registry=https://registry.npmmirror.com<br>//检测是否安装成功<br>cnpm -v<br>//安装依赖<br>cnpm install 你的依赖<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nvm</tag>
+      
+      <tag>淘宝镜像</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java的String类中replace和replaceAll的区别</title>
     <link href="/Java%E7%9A%84String%E7%B1%BB%E4%B8%ADreplace%E5%92%8CreplaceAll%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <url>/Java%E7%9A%84String%E7%B1%BB%E4%B8%ADreplace%E5%92%8CreplaceAll%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
