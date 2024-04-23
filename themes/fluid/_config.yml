@@ -477,7 +477,7 @@ index:
 
     # 为空则按 hexo config.subtitle 显示
     # If empty, text based on `subtitle` in hexo config
-    text: "芝    麻     开     门"
+    text: "知 易 行 难"
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
@@ -530,7 +530,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -584,7 +584,7 @@ post:
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
   # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
   updated:
-    enable: false
+    enable: true
 
     # 格式参照 ISO-8601 日期格式化
     # ISO-8601 date format
@@ -593,7 +593,7 @@ post:
 
     # 是否使用相对时间表示，比如："3 天前"
     # If true, it will be a relative time, such as: "3 days ago"
-    relative: false
+    relative: true
 
     # 提示标签类型
     # Note class
@@ -648,7 +648,7 @@ post:
 
     # CreativeCommons license
     # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
-    license: 'BY'
+    license: 'BY-NC-ND'
 
     # 显示作者
     author:
@@ -894,7 +894,7 @@ discuss:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -905,7 +905,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -934,7 +934,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 80
   banner_mask_alpha: 0.3
   tagcloud:
@@ -951,7 +951,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   avatar: /img/sasha.png
@@ -973,7 +973,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -998,7 +998,7 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: /img/golden-gate-bridge.png
+  banner_img: /img/goldenbridge.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   # 友链的成员项
