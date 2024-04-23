@@ -24,4 +24,6 @@ hexo.extend.filter.register('theme_inject', function(injects) {
   if (hexo.theme.config.links.comments.enable) {
     injects.linksComments.file('default', path.join(hexo.theme_dir, 'layout/_partials/comments.ejs'));
   }
+  // 全站总字数
+  injects.bodyEnd.file('showword', 'source/_inject/show_wordcount_total.ejs', { key: 'value' }, -1);
 }, -99);
