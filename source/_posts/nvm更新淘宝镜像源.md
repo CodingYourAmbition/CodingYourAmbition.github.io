@@ -1,10 +1,11 @@
 ---
 title: nvm&npm更新淘宝镜像源
-date: 2024-04-20 21:31:57
 tags:
   - nvm
   - 淘宝镜像
 category: nodejs
+abbrlink: 666010b5
+date: 2024-04-20 21:31:57
 ---
 > 淘宝原来的npm镜像网站现在已经更换到了[新淘宝镜像站](https://npmmirror.com)，为此，nvm和npm的配置也需要更新：
 ### nvm目录下settings.txt

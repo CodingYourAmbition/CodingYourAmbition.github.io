@@ -1,9 +1,10 @@
 ---
 title: nvm常用命令
-date: 2024-04-20 22:15:48
 tags:
   - nvm
 category: nodejs
+abbrlink: 37fc8d59
+date: 2024-04-20 22:15:48
 ---
 ```text
 nvm off                     // 禁用node.js版本管理(不卸载任何东西)

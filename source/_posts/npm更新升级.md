@@ -1,9 +1,10 @@
 ---
 title: npm更新升级
-date: 2024-04-20 22:12:48
 tags:
   - npm
 category: nodejs
+abbrlink: 45f6034
+date: 2024-04-20 22:12:48
 ---
 
 1.查看`npm`当前版本

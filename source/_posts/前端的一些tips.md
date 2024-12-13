@@ -1,11 +1,12 @@
 ---
 title: 前端的一些tips(一)
-date: 2024-05-11 17:53:38
 excerpt: 前端的一些小问题总结
-tags: 
+tags:
   - tips
 categories:
   - font
+abbrlink: 23d9b587
+date: 2024-05-11 17:53:38
 ---
 1. 为什么要用两个`!!`
 ```js

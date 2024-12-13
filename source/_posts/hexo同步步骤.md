@@ -1,11 +1,12 @@
 ---
 title: Hexo博客同步步骤
-date: 2024-04-16 13:32:59
 excerpt: Hexo博客同步步骤
-tags: 
+tags:
   - sync
 categories:
   - 博客
+abbrlink: 444f8efd
+date: 2024-04-16 13:32:59
 ---
 ## 博客同步步骤
 1. 在新电脑上拉取[hexosync分支代码](https://github.com/CodingYourAmbition/CodingYourAmbition.github.io.git)
