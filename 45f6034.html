@@ -16,24 +16,24 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="123456789nvm off                     &#x2F;&#x2F; 禁用node.js版本管理(不卸载任何东西)nvm on                      &#x2F;&#x2F; 启用node.js版本管理nvm install &lt;version&gt;       &#x2F;&#x2F; 安装node.js的命名 version是版本号 例如：nvm install 8.12.0nvm uninsta">
+    <meta name="description" content="1.查看npm当前版本 1npm -v  2.清理npm缓存数据 1npm cache clean --force  3.更新到最新版本 1npm install -g npm  4.更新到指定版本 1npm -g install npm@10.4.0  或者 1npm i npm@10.4.0 -g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nvm常用命令">
-<meta property="og:url" content="http://s1mplecode.com/nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="npm更新升级">
+<meta property="og:url" content="http://s1mplecode.com/45f6034.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="123456789nvm off                     &#x2F;&#x2F; 禁用node.js版本管理(不卸载任何东西)nvm on                      &#x2F;&#x2F; 启用node.js版本管理nvm install &lt;version&gt;       &#x2F;&#x2F; 安装node.js的命名 version是版本号 例如：nvm install 8.12.0nvm uninsta">
+<meta property="og:description" content="1.查看npm当前版本 1npm -v  2.清理npm缓存数据 1npm cache clean --force  3.更新到最新版本 1npm install -g npm  4.更新到指定版本 1npm -g install npm@10.4.0  或者 1npm i npm@10.4.0 -g">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-20T14:15:48.000Z">
-<meta property="article:modified_time" content="2024-08-29T12:50:40.413Z">
+<meta property="article:published_time" content="2024-04-20T14:12:48.000Z">
+<meta property="article:modified_time" content="2024-12-13T09:29:26.091Z">
 <meta property="article:author" content="Jago">
-<meta property="article:tag" content="nvm">
+<meta property="article:tag" content="npm">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>nvm常用命令 - 简单代码</title>
+  <title>npm更新升级 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="nvm常用命令"></span>
+            <span id="subtitle" data-typed-text="npm更新升级"></span>
           
         </div>
 
@@ -249,7 +249,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-20 22:15" pubdate>
+        <time datetime="2024-04-20 22:12" pubdate>
           2024年4月20日 晚上
         </time>
       </span>
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          125 字
+          44 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -317,12 +317,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">nvm常用命令</h1>
+            <h1 id="seo-header">npm更新升级</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-08-29T20:50:40+08:00
+                    本文最后更新于 2024-12-13T17:29:26+08:00
                   
                   
 
@@ -332,7 +332,21 @@
             
               <div class="markdown-body">
                 
-                <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">nvm off                     // 禁用node.js版本管理(不卸载任何东西)<br>nvm on                      // 启用node.js版本管理<br>nvm install &lt;version&gt;       // 安装node.js的命名 version是版本号 例如：nvm install 8.12.0<br>nvm uninstall &lt;version&gt;     // 卸载node.js是的命令，卸载指定版本的nodejs，当安装失败时卸载使用<br>nvm ls                      // 显示所有安装的node.js版本<br>nvm list available          // 显示可以安装的所有node.js的版本<br>nvm use &lt;version&gt;           // 切换到使用指定的nodejs版本<br>nvm v                       // 显示nvm版本<br>nvm install stable          // 安装最新稳定版<br></code></pre></td></tr></table></figure>
+                <p>1.查看<code>npm</code>当前版本</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -v<br></code></pre></td></tr></table></figure>
+
+<p>2.清理<code>npm</code>缓存数据</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm cache clean --force<br></code></pre></td></tr></table></figure>
+
+<p>3.更新到最新版本</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm install -g npm<br></code></pre></td></tr></table></figure>
+
+<p>4.更新到指定版本</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -g install npm@10.4.0<br></code></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm i npm@10.4.0 -g<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -365,7 +379,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/nvm/" class="print-no-link">#nvm</a>
+        <a href="/tags/npm/" class="print-no-link">#npm</a>
       
     </div>
   
@@ -377,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>nvm常用命令</div>
-      <div>http://s1mplecode.com/nvm常用命令/</div>
+      <div>npm更新升级</div>
+      <div>http://s1mplecode.com/45f6034.html</div>
     </div>
     <div class="license-meta">
       
@@ -434,9 +448,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%89%8D%E7%AB%AF%E7%9A%84%E4%B8%80%E4%BA%9Btips/" title="前端的一些tips(一)">
+                      <a href="/37fc8d59.html" title="nvm常用命令">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">前端的一些tips(一)</span>
+                        <span class="hidden-mobile">nvm常用命令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -444,8 +458,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/npm%E6%9B%B4%E6%96%B0%E5%8D%87%E7%BA%A7/" title="npm更新升级">
-                        <span class="hidden-mobile">npm更新升级</span>
+                      <a href="/666010b5.html" title="nvm&amp;npm更新淘宝镜像源">
+                        <span class="hidden-mobile">nvm&amp;npm更新淘宝镜像源</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
