@@ -16,24 +16,23 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="碰到了个el-table合并单元格的问题，给我人整麻了，怎么写都不对，最后还是问AI，我tm，没一点再工作的兴趣">
+    <meta name="description" content="用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工作中有气无力">
-<meta property="og:url" content="http://s1mplecode.com/653c71e1.html">
+<meta property="og:title" content="设计模式之原型模式">
+<meta property="og:url" content="http://s1mplecode.com/7a86e223.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="碰到了个el-table合并单元格的问题，给我人整麻了，怎么写都不对，最后还是问AI，我tm，没一点再工作的兴趣">
+<meta property="og:description" content="用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-13T08:59:58.000Z">
-<meta property="article:modified_time" content="2024-12-13T09:29:26.093Z">
+<meta property="article:published_time" content="2024-12-17T07:49:12.000Z">
+<meta property="article:modified_time" content="2024-12-17T10:13:14.421Z">
 <meta property="article:author" content="Jago">
-<meta property="article:tag" content="gossip">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>工作中有气无力 - 简单代码</title>
+  <title>设计模式之原型模式 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="工作中有气无力"></span>
+            <span id="subtitle" data-typed-text="设计模式之原型模式"></span>
           
         </div>
 
@@ -249,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-13 16:59" pubdate>
-          2024年12月13日 下午
+        <time datetime="2024-12-17 15:49" pubdate>
+          2024年12月17日 下午
         </time>
       </span>
     
@@ -261,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          43 字
+          444 字
         
       </span>
     
@@ -272,7 +271,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -317,12 +316,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">工作中有气无力</h1>
+            <h1 id="seo-header">设计模式之原型模式</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-13T17:29:26+08:00
+                    本文最后更新于 2024-12-17T18:13:14+08:00
                   
                   
 
@@ -332,7 +331,30 @@
             
               <div class="markdown-body">
                 
-                <p>碰到了个el-table合并单元格的问题，给我人整麻了，怎么写都不对，最后还是问AI，我tm，没一点再工作的兴趣</p>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>原型模式（Prototype），用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>与每次new对象相比，每NEW一次，都需要执行 一次构造函数，如果构造函数的执行时间很长，那么多次的执行这个初始化操作就实在是太低效了。 一<br>般在初始化的信息不发生变化的情况下，克隆是 最好的办法。这既隐藏了对象创建的细节，又对性能是大大的提高。</li>
+<li>不用重新初始化对象，而是动态地获得对象运行时的状态</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>原型接口，包括copy方法用来实现原型对象的克隆</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Prototype</span>&lt;T&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Cloneable</span> &#123;<br>    <span class="hljs-keyword">public</span> T <span class="hljs-title function_">copy</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> (T) <span class="hljs-built_in">super</span>.clone();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Beast类、OrcBeast类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Beast</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Prototype</span>&lt;Beast&gt; &#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">Beast</span><span class="hljs-params">(Beast source)</span> &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrcBeast</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Beast</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String weapon;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">OrcBeast</span><span class="hljs-params">(OrcBeast orcBeast)</span> &#123;<br>    <span class="hljs-built_in">super</span>(orcBeast);<br>    <span class="hljs-built_in">this</span>.weapon = orcBeast.weapon;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Orcish wolf attacks with &quot;</span> + weapon;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>不同原型的工厂</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">HeroFactory</span> &#123;<br>  Mage <span class="hljs-title function_">createMage</span><span class="hljs-params">()</span>;<br>  Warlord <span class="hljs-title function_">createWarlord</span><span class="hljs-params">()</span>;<br>  Beast <span class="hljs-title function_">createBeast</span><span class="hljs-params">()</span>;<br>&#125;<br><span class="hljs-meta">@RequiredArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HeroFactoryImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">HeroFactory</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Mage mage;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Warlord warlord;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Beast beast;<br><br>  <span class="hljs-keyword">public</span> Mage <span class="hljs-title function_">createMage</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> mage.copy();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> Warlord <span class="hljs-title function_">createWarlord</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> warlord.copy();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> Beast <span class="hljs-title function_">createBeast</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> beast.copy();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>应用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HeroFactoryImpl</span>(<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElfMage</span>(<span class="hljs-string">&quot;cooking&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElfWarlord</span>(<span class="hljs-string">&quot;cleaning&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElfBeast</span>(<span class="hljs-string">&quot;protecting&quot;</span>)<br>    );<br>    <span class="hljs-type">var</span> <span class="hljs-variable">mage</span> <span class="hljs-operator">=</span> factory.createMage();<br>    <span class="hljs-type">var</span> <span class="hljs-variable">warlord</span> <span class="hljs-operator">=</span> factory.createWarlord();<br>    <span class="hljs-type">var</span> <span class="hljs-variable">beast</span> <span class="hljs-operator">=</span> factory.createBeast();<br>    LOGGER.info(mage.toString());<br>    LOGGER.info(warlord.toString());<br>    LOGGER.info(beast.toString());<br><br>    factory = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HeroFactoryImpl</span>(<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrcMage</span>(<span class="hljs-string">&quot;axe&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrcWarlord</span>(<span class="hljs-string">&quot;sword&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrcBeast</span>(<span class="hljs-string">&quot;laser&quot;</span>)<br>    );<br>    mage = factory.createMage();<br>    warlord = factory.createWarlord();<br>    beast = factory.createBeast();<br>    LOGGER.info(mage.toString());<br>    LOGGER.info(warlord.toString());<br>    LOGGER.info(beast.toString());<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs txt">08:36:19.012 [main] INFO com.iluwatar.prototype.App -- Elven mage helps in cooking<br>08:36:19.013 [main] INFO com.iluwatar.prototype.App -- Elven warlord helps in cleaning<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Elven eagle helps in protecting<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Orcish mage attacks with axe<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Orcish warlord attacks with sword<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Orcish wolf attacks with laser<br></code></pre></td></tr></table></figure>
+
+<p>注意</p>
+<ul>
+<li>需要深拷贝，原型对象的属性又非常复杂的场景，原型模式实现克隆可能会比较复杂</li>
+</ul>
 
                 
               </div>
@@ -341,13 +363,27 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/gossip/" class="print-no-link">#gossip</a>
-      
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/design-pattern/" class="category-chain-item">design-pattern</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
     </div>
+  
   
 </div>
 
@@ -357,8 +393,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>工作中有气无力</div>
-      <div>http://s1mplecode.com/653c71e1.html</div>
+      <div>设计模式之原型模式</div>
+      <div>http://s1mplecode.com/7a86e223.html</div>
     </div>
     <div class="license-meta">
       
@@ -370,7 +406,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月13日</div>
+          <div>2024年12月17日</div>
         </div>
       
       
@@ -414,18 +450,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/f7ff1dcb.html" title="Java8接口新特性">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java8接口新特性</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/511185e7.html" title="小问题解决的方法记录">
-                        <span class="hidden-mobile">小问题解决的方法记录</span>
+                      <a href="/f7ff1dcb.html" title="Java8接口新特性">
+                        <span class="hidden-mobile">Java8接口新特性</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
