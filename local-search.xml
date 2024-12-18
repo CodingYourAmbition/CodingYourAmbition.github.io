@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Git设置Github代理</title>
+    <link href="/proxy/github.html"/>
+    <url>/proxy/github.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="一、代理设置"><a href="#一、代理设置" class="headerlink" title="一、代理设置"></a>一、代理设置</h2><h3 id="1、全局代理设置"><a href="#1、全局代理设置" class="headerlink" title="1、全局代理设置"></a>1、全局代理设置</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> http<span class="hljs-selector-class">.proxy</span> http:<span class="hljs-comment">//127.0.0.1:7890</span><br>git config <span class="hljs-attr">--global</span> https<span class="hljs-selector-class">.proxy</span> https:<span class="hljs-comment">//127.0.0.1:7890</span><br></code></pre></td></tr></table></figure><p>这里可以打开clash查看代理设置，查看自己的端口是否为1080，不是的改为对应的端口</p><h3 id="2、只对GitHub进行代理"><a href="#2、只对GitHub进行代理" class="headerlink" title="2、只对GitHub进行代理"></a>2、只对GitHub进行代理</h3><p>如果挂了全局代理，克隆coding之类的国内仓库会变慢，所以我建议使用如下命令，只对GitHub进行代理，对国内的仓库不影响</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> http.https:<span class="hljs-string">//github.com.proxy</span> https:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br>git config <span class="hljs-params">--global</span> https.https:<span class="hljs-string">//github.com.proxy</span> https:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br></code></pre></td></tr></table></figure><p>如果在输入这条命令之前，已经输入全局代理的话，可以按照二、取消代理的方法进行取消</p><p>注意：以上两点都是对https协议进行代理设置，也就是仅对<code>git clone https://www.github.com/xxxx/xxxx.git</code>这种命令有效。对于SSH协议，也就是<code>git clone git@github.com:xxxxxx/xxxxxx.git</code>这种，依旧是无效的</p><h3 id="3、sock5代理设置"><a href="#3、sock5代理设置" class="headerlink" title="3、sock5代理设置"></a>3、sock5代理设置</h3><p>之前说的是http代理，有人反映ss暴露的是socks5。下面附上socks5代理的方法</p><p>1、首先查看自己socks5的端口号，假设为：127.0.0.1:7890<br>2、输入以下命令：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> http.https:<span class="hljs-string">//github.com.proxy</span> socks5:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br>git config <span class="hljs-params">--global</span> https.https:<span class="hljs-string">//github.com.proxy</span> socks5:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br></code></pre></td></tr></table></figure><h2 id="二、取消代理"><a href="#二、取消代理" class="headerlink" title="二、取消代理"></a>二、取消代理</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> http<span class="hljs-selector-class">.proxy</span><br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> https.proxy<br></code></pre></td></tr></table></figure><h2 id="三、查看已有配置"><a href="#三、查看已有配置" class="headerlink" title="三、查看已有配置"></a>三、查看已有配置</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--global -l</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>proxy</category>
+      
+      <category>GitHub</category>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>设计模式之模板方法模式</title>
+    <link href="/design-pattern/template-method.html"/>
+    <url>/design-pattern/template-method.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>模板方法模式（Template Method），定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>在基类中定义算法的不变部分提升了代码复用性</li><li>将通用行为封装在一个地方简化了代码维护</li><li>允许子类覆盖算法的特定步骤增强了代码灵活性</li></ul><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>以偷东西为例子</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StealingMethod</span> &#123;<br><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title function_">pickTarget</span><span class="hljs-params">()</span>;<br><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confuseTarget</span><span class="hljs-params">(String target)</span>;<br><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">stealTheItem</span><span class="hljs-params">(String target)</span>;<br>  <span class="hljs-comment">// 模板方法</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">steal</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">target</span> <span class="hljs-operator">=</span> pickTarget();<br>    LOGGER.info(<span class="hljs-string">&quot;The target has been chosen as &#123;&#125;.&quot;</span>, target);<br>    confuseTarget(target);<br>    stealTheItem(target);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>偷东西方式一</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SubtleMethod</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">StealingMethod</span> &#123;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> String <span class="hljs-title function_">pickTarget</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;shop keeper&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confuseTarget</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;Approach the &#123;&#125; with tears running and hug him!&quot;</span>, target);<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">stealTheItem</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;While in close contact grab the &#123;&#125;&#x27;s wallet.&quot;</span>, target);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>偷东西方式二</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HitAndRunMethod</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">StealingMethod</span> &#123;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> String <span class="hljs-title function_">pickTarget</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;old goblin woman&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confuseTarget</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;Approach the &#123;&#125; from behind.&quot;</span>, target);<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">stealTheItem</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;Grab the handbag and run away fast!&quot;</span>);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>小偷</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HalflingThief</span> &#123;<br><br>  <span class="hljs-keyword">private</span> StealingMethod method;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">HalflingThief</span><span class="hljs-params">(StealingMethod method)</span> &#123;<br>    <span class="hljs-built_in">this</span>.method = method;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">steal</span><span class="hljs-params">()</span> &#123;<br>    method.steal();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">changeMethod</span><span class="hljs-params">(StealingMethod method)</span> &#123;<br>    <span class="hljs-built_in">this</span>.method = method;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>应用</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">thief</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HalflingThief</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">HitAndRunMethod</span>());<br>    thief.steal();<br>    thief.changeMethod(<span class="hljs-keyword">new</span> <span class="hljs-title class_">SubtleMethod</span>());<br>    thief.steal();<br>&#125;<br></code></pre></td></tr></table></figure><p>输出</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">11:06:01.721 [main] INFO com.iluwatar.templatemethod.StealingMethod -- The target has been chosen as old goblin woman.<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.HitAndRunMethod -- Approach the old goblin woman from behind.<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.HitAndRunMethod -- Grab the handbag and run away fast!<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.StealingMethod -- The target has been chosen as shop keeper.<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.SubtleMethod -- Approach the shop keeper with tears running and hug him!<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.SubtleMethod -- While in close contact grab the shop keeper&#x27;s wallet.<br></code></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li>可能导致类的数量增加，使系统更加复杂</li><li>需要仔细设计，以确保公开给子类的步骤是有用和有意义的</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>design-pattern</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/4a17b156.html"/>
+    <url>/4a17b156.html</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>设计模式之原型模式</title>
+    <link href="/design-pattern/prototype.html"/>
+    <url>/design-pattern/prototype.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>原型模式（Prototype），用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul><li>与每次new对象相比，每NEW一次，都需要执行 一次构造函数，如果构造函数的执行时间很长，那么多次的执行这个初始化操作就实在是太低效了。 一般在初始化的信息不发生变化的情况下，克隆是 最好的办法。这既隐藏了对象创建的细节，又对性能是大大的提高。</li><li>不用重新初始化对象，而是动态地获得对象运行时的状态</li></ul><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>原型接口，包括copy方法用来实现原型对象的克隆</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Prototype</span>&lt;T&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Cloneable</span> &#123;<br>    <span class="hljs-keyword">public</span> T <span class="hljs-title function_">copy</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> (T) <span class="hljs-built_in">super</span>.clone();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>Beast类、OrcBeast类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Beast</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Prototype</span>&lt;Beast&gt; &#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">Beast</span><span class="hljs-params">(Beast source)</span> &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OrcBeast</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Beast</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String weapon;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">OrcBeast</span><span class="hljs-params">(OrcBeast orcBeast)</span> &#123;<br>    <span class="hljs-built_in">super</span>(orcBeast);<br>    <span class="hljs-built_in">this</span>.weapon = orcBeast.weapon;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Orcish wolf attacks with &quot;</span> + weapon;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure><p>不同原型的工厂</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">HeroFactory</span> &#123;<br>  Mage <span class="hljs-title function_">createMage</span><span class="hljs-params">()</span>;<br>  Warlord <span class="hljs-title function_">createWarlord</span><span class="hljs-params">()</span>;<br>  Beast <span class="hljs-title function_">createBeast</span><span class="hljs-params">()</span>;<br>&#125;<br><span class="hljs-meta">@RequiredArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HeroFactoryImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">HeroFactory</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Mage mage;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Warlord warlord;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Beast beast;<br><br>  <span class="hljs-keyword">public</span> Mage <span class="hljs-title function_">createMage</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> mage.copy();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> Warlord <span class="hljs-title function_">createWarlord</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> warlord.copy();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> Beast <span class="hljs-title function_">createBeast</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> beast.copy();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>应用</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HeroFactoryImpl</span>(<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElfMage</span>(<span class="hljs-string">&quot;cooking&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElfWarlord</span>(<span class="hljs-string">&quot;cleaning&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">ElfBeast</span>(<span class="hljs-string">&quot;protecting&quot;</span>)<br>    );<br>    <span class="hljs-type">var</span> <span class="hljs-variable">mage</span> <span class="hljs-operator">=</span> factory.createMage();<br>    <span class="hljs-type">var</span> <span class="hljs-variable">warlord</span> <span class="hljs-operator">=</span> factory.createWarlord();<br>    <span class="hljs-type">var</span> <span class="hljs-variable">beast</span> <span class="hljs-operator">=</span> factory.createBeast();<br>    LOGGER.info(mage.toString());<br>    LOGGER.info(warlord.toString());<br>    LOGGER.info(beast.toString());<br><br>    factory = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HeroFactoryImpl</span>(<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrcMage</span>(<span class="hljs-string">&quot;axe&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrcWarlord</span>(<span class="hljs-string">&quot;sword&quot;</span>),<br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">OrcBeast</span>(<span class="hljs-string">&quot;laser&quot;</span>)<br>    );<br>    mage = factory.createMage();<br>    warlord = factory.createWarlord();<br>    beast = factory.createBeast();<br>    LOGGER.info(mage.toString());<br>    LOGGER.info(warlord.toString());<br>    LOGGER.info(beast.toString());<br>&#125;<br><br></code></pre></td></tr></table></figure><p>输出</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs txt">08:36:19.012 [main] INFO com.iluwatar.prototype.App -- Elven mage helps in cooking<br>08:36:19.013 [main] INFO com.iluwatar.prototype.App -- Elven warlord helps in cleaning<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Elven eagle helps in protecting<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Orcish mage attacks with axe<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Orcish warlord attacks with sword<br>08:36:19.014 [main] INFO com.iluwatar.prototype.App -- Orcish wolf attacks with laser<br></code></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li>需要深拷贝，原型对象的属性又非常复杂的场景，原型模式实现克隆可能会比较复杂</li><li>可能出现循环引用的问题</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>design-pattern</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java8接口新特性</title>
+    <link href="/f7ff1dcb.html"/>
+    <url>/f7ff1dcb.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-JDK8中接口的新增"><a href="#1-JDK8中接口的新增" class="headerlink" title="1. JDK8中接口的新增"></a>1. JDK8中接口的新增</h3><p>在JDK8中针对接口有做增强，在JDK8之前</p><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">interface 接口名&#123;<br>    静态常量<span class="hljs-comment">;</span><br>    抽象方法<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure><p>JDK8之后对接口做了增加，接口中可以有<strong>默认方法</strong>和<strong>静态方法</strong>,并且默认方法和静态方法都是隐式public的</p><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs abnf">interface 接口名&#123;<br>静态常量<span class="hljs-comment">;</span><br>抽象方法<span class="hljs-comment">;</span><br>默认方法<span class="hljs-comment">;</span><br>静态方法<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="2-默认方法"><a href="#2-默认方法" class="headerlink" title="2 默认方法"></a>2 默认方法</h3><h4 id="2-1-为什么要增加默认方法"><a href="#2-1-为什么要增加默认方法" class="headerlink" title="2.1 为什么要增加默认方法"></a>2.1 为什么要增加默认方法</h4><blockquote><p>在JDK8以前接口中只能有抽象方法和静态常量，会存在以下的问题： 如果接口中新增抽象方法，那么实现类都必须要抽象这个抽象方法，非常不利于接口的扩展的 接口中新增抽象方法，所有实现类都需要重写这个方法，不利于接口的扩展</p></blockquote><h4 id="2-2-接口默认方法的格式"><a href="#2-2-接口默认方法的格式" class="headerlink" title="2.2 接口默认方法的格式"></a>2.2 接口默认方法的格式</h4><p>接口中默认方法的语法格式是</p><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-title class_"><span class="hljs-keyword">interface</span> 接口名</span>&#123;<br>    修饰符 <span class="hljs-keyword">default</span> 返回值类型 方法名&#123;<br>    方法体;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure><h4 id="2-3-接口中默认方法的使用"><a href="#2-3-接口中默认方法的使用" class="headerlink" title="2.3 接口中默认方法的使用"></a>2.3 接口中默认方法的使用</h4><p>接口中的默认方法有两种使用方式</p><ol><li>实现类直接调用接口的默认方法</li><li>实现类重写接口的默认方法</li></ol><h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><p>JDK8中为接口新增了静态方法，作用也是为了接口的扩展</p><h4 id="3-1-语法规则"><a href="#3-1-语法规则" class="headerlink" title="3.1 语法规则"></a>3.1 语法规则</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-title class_"><span class="hljs-keyword">interface</span> 接口名</span>&#123;<br>    修饰符 <span class="hljs-keyword">static</span> 返回值类型 方法名&#123;<br>    方法体;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure><h4 id="3-2-静态方法的使用"><a href="#3-2-静态方法的使用" class="headerlink" title="3.2 静态方法的使用"></a>3.2 静态方法的使用</h4><p>接口中的静态方法在实现类中是不能被重写的，调用的话只能通过接口类型来实现: 接口名.静态方法名();</p><blockquote><p>想信小伙伴们会有这种疑问 那接口中的静态方法能不能被继承呢 就是类实现接口 还能不能调用接口中的静态方法呢</p></blockquote><h3 id="4两者的区别介绍"><a href="#4两者的区别介绍" class="headerlink" title="4两者的区别介绍"></a>4两者的区别介绍</h3><ol><li>默认方法通过实例调用，静态方法通过接口名调用</li><li>默认方法可以被继承，实现类可以直接调用接口默认方法，也可以重写接口默认方法</li><li>静态方法不能被继承，实现类不能重写接口的静态方法，只能使用接口名调用</li></ol><h3 id="Java9中允许接口包含私有方法"><a href="#Java9中允许接口包含私有方法" class="headerlink" title="Java9中允许接口包含私有方法"></a>Java9中允许接口包含私有方法</h3><p>Java9进一步扩展了接口的功能，允许接口包含私有方法（private methods）。这些私有方法只能在接口内部被其他默认方法或静态方法调用，不能被实现了该接口的类直接访问。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>java</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>工作中有气无力</title>
+    <link href="/653c71e1.html"/>
+    <url>/653c71e1.html</url>
+    
+    <content type="html"><![CDATA[<p>碰到了个el-table合并单元格的问题，给我人整麻了，怎么写都不对，最后还是问AI，我tm，没一点再工作的兴趣</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>gossip</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>小问题解决的方法记录</title>
+    <link href="/methods.html"/>
+    <url>/methods.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="IDEA-gradle突然报错系统找不到指定的路径-Could-not-read-workspace-metadata-from"><a href="#IDEA-gradle突然报错系统找不到指定的路径-Could-not-read-workspace-metadata-from" class="headerlink" title="IDEA gradle突然报错系统找不到指定的路径  Could not read workspace metadata from"></a>IDEA gradle突然报错系统找不到指定的路径  Could not read workspace metadata from</h2><pre><code class="hljs">直接gradle设置里指定新的gradle user home文件夹，刷新gradle后解决</code></pre><h2 id="postman调试接口404-NOT-FOUND"><a href="#postman调试接口404-NOT-FOUND" class="headerlink" title="postman调试接口404 NOT FOUND"></a>postman调试接口404 NOT FOUND</h2><pre><code class="hljs">[流汗]新模块的gralde依赖没有加到总的app里，一定要加上啊！！！</code></pre><h2 id="SQL中使用CASE-WHEN…THEN…WHEN…THEN……ELSE…END时注意最后要有END"><a href="#SQL中使用CASE-WHEN…THEN…WHEN…THEN……ELSE…END时注意最后要有END" class="headerlink" title="SQL中使用CASE WHEN…THEN…WHEN…THEN……ELSE…END时注意最后要有END"></a>SQL中使用CASE WHEN…THEN…WHEN…THEN……ELSE…END时注意最后要有END</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>method</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JS中的一些数组技巧（一）</title>
+    <link href="/cc786bc.html"/>
+    <url>/cc786bc.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="克隆数组（浅拷贝）"><a href="#克隆数组（浅拷贝）" class="headerlink" title="克隆数组（浅拷贝）"></a>克隆数组（浅拷贝）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> _arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">const</span> arr = [..._arr];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1, 2]</span><br></code></pre></td></tr></table></figure><h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">const</span> arr2 = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">const</span> arr = [...arr1, ...arr2];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1, 2, 3, 4, 5]; </span><br></code></pre></td></tr></table></figure><h3 id="去重数组"><a href="#去重数组" class="headerlink" title="去重数组"></a>去重数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [...<span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>])];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1, null] </span><br></code></pre></td></tr></table></figure><h3 id="混淆数组"><a href="#混淆数组" class="headerlink" title="混淆数组"></a>混淆数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].<span class="hljs-title function_">slice</span>().<span class="hljs-title function_">sort</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() - <span class="hljs-number">0.5</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [3, 4, 0, 5, 1, 2] </span><br></code></pre></td></tr></table></figure><h3 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br>arr.<span class="hljs-property">length</span> = <span class="hljs-number">0</span>; <span class="hljs-comment">// []</span><br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [] </span><br></code></pre></td></tr></table></figure><h3 id="截断数组"><a href="#截断数组" class="headerlink" title="截断数组"></a>截断数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br>arr.<span class="hljs-property">length</span> = <span class="hljs-number">2</span>;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1] </span><br></code></pre></td></tr></table></figure><h3 id="交换赋值"><a href="#交换赋值" class="headerlink" title="交换赋值"></a>交换赋值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> a = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">let</span> b = <span class="hljs-number">1</span>;<br>[a, b] = [b, a];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a, b); <span class="hljs-comment">// 1 0 </span><br></code></pre></td></tr></table></figure><h3 id="过滤空值"><a href="#过滤空值" class="headerlink" title="过滤空值"></a>过滤空值</h3><blockquote><p>空值：undefined、null、””、0、false、NaN</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-title class_">NaN</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>].<span class="hljs-title function_">filter</span>(<span class="hljs-title class_">Boolean</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [1, 2] </span><br></code></pre></td></tr></table></figure><h3 id="数组首部插入成员"><a href="#数组首部插入成员" class="headerlink" title="数组首部插入成员"></a>数组首部插入成员</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]; <span class="hljs-comment">// 以下方法任选一种</span><br>arr.<span class="hljs-title function_">unshift</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// [0, 1, 2]</span><br>arr = [<span class="hljs-number">0</span>].<span class="hljs-title function_">concat</span>(arr); <span class="hljs-comment">// [0, 1, 2]</span><br>arr = [<span class="hljs-number">0</span>, ...arr]; <span class="hljs-comment">// [0, 1, 2]</span><br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1, 2] </span><br></code></pre></td></tr></table></figure><h3 id="数组尾部插入成员"><a href="#数组尾部插入成员" class="headerlink" title="数组尾部插入成员"></a>数组尾部插入成员</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]; <span class="hljs-comment">// 以下方法任选一种</span><br>arr.<span class="hljs-title function_">push</span>(<span class="hljs-number">2</span>);<br>arr.<span class="hljs-title function_">concat</span>(<span class="hljs-number">2</span>);<br>arr[arr.<span class="hljs-property">length</span>] = <span class="hljs-number">2</span>;<br>arr = [...arr, <span class="hljs-number">2</span>];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1, 2] </span><br></code></pre></td></tr></table></figure><h3 id="统计数组成员个数"><a href="#统计数组成员个数" class="headerlink" title="统计数组成员个数"></a>统计数组成员个数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">const</span> count = arr.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">t, v</span>) =&gt;</span> &#123;<br>  t[v] = t[v] ? ++t[v] : <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">return</span> t;<br>&#125;, &#123;&#125;);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(count); <span class="hljs-comment">// &#123; 0: 1, 1: 2, 2: 3 &#125; </span><br></code></pre></td></tr></table></figure><h3 id="解构数组成员嵌套"><a href="#解构数组成员嵌套" class="headerlink" title="解构数组成员嵌套"></a>解构数组成员嵌套</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]];<br><span class="hljs-keyword">const</span> [a, b, [c, d, [e, f]]] = arr;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a, b, c, d, e, f); <span class="hljs-comment">// 0 1 2 3 4 5 </span><br></code></pre></td></tr></table></figure><h3 id="解构数组成员别名"><a href="#解构数组成员别名" class="headerlink" title="解构数组成员别名"></a>解构数组成员别名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">const</span> &#123; <span class="hljs-number">0</span>: a, <span class="hljs-number">1</span>: b, <span class="hljs-number">2</span>: c &#125; = arr;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a, b, c); <span class="hljs-comment">// 0 1 2 </span><br></code></pre></td></tr></table></figure><h3 id="解构数组成员默认值"><a href="#解构数组成员默认值" class="headerlink" title="解构数组成员默认值"></a>解构数组成员默认值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">const</span> [a, b, c = <span class="hljs-number">3</span>, d = <span class="hljs-number">4</span>] = arr;<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a, b, c, d); <span class="hljs-comment">// 0 1 2 4 </span><br></code></pre></td></tr></table></figure><h3 id="获取随机数组成员"><a href="#获取随机数组成员" class="headerlink" title="获取随机数组成员"></a>获取随机数组成员</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">const</span> randomItem = arr[<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * arr.<span class="hljs-property">length</span>)];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(randomItem); <span class="hljs-comment">// 输出随机数 </span><br></code></pre></td></tr></table></figure><h3 id="创建指定长度数组"><a href="#创建指定长度数组" class="headerlink" title="创建指定长度数组"></a>创建指定长度数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [...<span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-number">3</span>).<span class="hljs-title function_">keys</span>()];<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 1, 2] </span><br></code></pre></td></tr></table></figure><h3 id="创建指定长度且值相等的数组"><a href="#创建指定长度且值相等的数组" class="headerlink" title="创建指定长度且值相等的数组"></a>创建指定长度且值相等的数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-number">3</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr); <span class="hljs-comment">// [0, 0, 0] </span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端的一些tips(一)</title>
+    <link href="/23d9b587.html"/>
+    <url>/23d9b587.html</url>
+    
+    <content type="html"><![CDATA[<ol><li><p>为什么要用两个<code>!!</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (!!<span class="hljs-variable language_">this</span>.<span class="hljs-property">dataSourceModel</span>.<span class="hljs-property">dataSourceCode</span> &amp;&amp; !!<span class="hljs-variable language_">this</span>.<span class="hljs-property">dataSourceModel</span>.<span class="hljs-property">pluginType</span>)&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">initPage</span>.<span class="hljs-title function_">getPluginType</span>();<br>&#125;<br></code></pre></td></tr></table></figure><p>使用两个感叹号 !! 是为了将变量的值强制转换为布尔类型。 在JavaScript中，!! 可以用来将任何值转换为对应的布尔值。<br>!! 的作用是将一个值转换为其对应的布尔值， 如果值为假值（例如 undefined、null、0、NaN、false、””），则转换为 false，<br>否则转换为 true。</p></li><li><p>js中的函数操作</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// concat函数 追加数组</span><br><span class="hljs-keyword">let</span> tempCondi =<br>    &#123;<br>        <span class="hljs-attr">baseDataRefs</span>: [],<br>        <span class="hljs-attr">baseDataRefsItem</span>: []<br>    &#125;<br>tempCondi.<span class="hljs-property">baseDataRefs</span> = tempCondi.<span class="hljs-property">baseDataRefs</span>.<span class="hljs-title function_">concat</span>(tempCondi.<span class="hljs-property">baseDataRefsItem</span>);<br><br><span class="hljs-comment">// find函数 找到第一个符号条件的元素</span><br><span class="hljs-comment">// fliter函数 找到符号条件的多个元素</span><br><span class="hljs-comment">// include函数 字符串包含</span><br><span class="hljs-keyword">var</span> str = <span class="hljs-string">&quot;abcde&quot;</span>;<br><span class="hljs-keyword">if</span> (str.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&quot;ab&quot;</span>)) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;字符串包含 &#x27;ab&#x27;&quot;</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;字符串不包含 &#x27;ab&#x27;&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>font</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>tips</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>nvm常用命令</title>
+    <link href="/37fc8d59.html"/>
+    <url>/37fc8d59.html</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">nvm off                     // 禁用node.js版本管理(不卸载任何东西)<br>nvm on                      // 启用node.js版本管理<br>nvm install &lt;version&gt;       // 安装node.js的命名 version是版本号 例如：nvm install 8.12.0<br>nvm uninstall &lt;version&gt;     // 卸载node.js是的命令，卸载指定版本的nodejs，当安装失败时卸载使用<br>nvm ls                      // 显示所有安装的node.js版本<br>nvm list available          // 显示可以安装的所有node.js的版本<br>nvm use &lt;version&gt;           // 切换到使用指定的nodejs版本<br>nvm v                       // 显示nvm版本<br>nvm install stable          // 安装最新稳定版<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nvm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>npm更新升级</title>
+    <link href="/45f6034.html"/>
+    <url>/45f6034.html</url>
+    
+    <content type="html"><![CDATA[<p>1.查看<code>npm</code>当前版本</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -v<br></code></pre></td></tr></table></figure><p>2.清理<code>npm</code>缓存数据</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm cache clean --force<br></code></pre></td></tr></table></figure><p>3.更新到最新版本</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm install -g npm<br></code></pre></td></tr></table></figure><p>4.更新到指定版本</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -g install npm@10.4.0<br></code></pre></td></tr></table></figure><p>或者</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm i npm@10.4.0 -g<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>npm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>nvm&amp;npm更新淘宝镜像源</title>
+    <link href="/666010b5.html"/>
+    <url>/666010b5.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>淘宝原来的npm镜像网站现在已经更换到了<a href="https://npmmirror.com/">新淘宝镜像站</a>，为此，nvm和npm的配置也需要更新：</p></blockquote><h3 id="nvm目录下settings-txt"><a href="#nvm目录下settings-txt" class="headerlink" title="nvm目录下settings.txt"></a>nvm目录下settings.txt</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">node_mirror: http://npmmirror.com/mirrors/node/ <br>npm_mirror: http://npmmirror.com/mirrors/npm/<br></code></pre></td></tr></table></figure><h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">// 1. 清空缓存<br>npm cache clean --force<br>// 2. 切换新源<br>npm config set registry https://registry.npmmirror.com<br></code></pre></td></tr></table></figure><h3 id="推荐使用淘宝命令工具cnpm"><a href="#推荐使用淘宝命令工具cnpm" class="headerlink" title="推荐使用淘宝命令工具cnpm"></a>推荐使用淘宝命令工具cnpm</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">//安装cnpm<br>npm install -g cnpm --registry=https://registry.npmmirror.com<br>//检测是否安装成功<br>cnpm -v<br>//安装依赖<br>cnpm install 你的依赖<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>nvm</tag>
+      
+      <tag>淘宝镜像</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java的String类中replace和replaceAll的区别</title>
+    <link href="/c5c08fb6.html"/>
+    <url>/c5c08fb6.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>In java.lang.String, the replace method either takes a pair of char’s or a pair of CharSequence’s (which String is implementing, so it’ll happily take a pair of String’s). The replace method will replace all occurrences of a char or CharSequence.<br>On the other hand, the first String arguments of replaceFirst and replaceAll are regular expressions (regex).<br>Using the wrong function can lead to subtle bugs.</p></blockquote><h3 id="Relevant-sections-from-java-lang-String"><a href="#Relevant-sections-from-java-lang-String" class="headerlink" title="Relevant sections from java.lang.String:"></a>Relevant sections from java.lang.String:</h3><ul><li><p>String replace(char oldChar, char newChar)<br>Returns a new string resulting from replacing all occurrences of oldChar in this string with newChar.</p></li><li><p>String replace(CharSequence target, CharSequence replacement)<br>Replaces each substring of this string that matches the literal target sequence with the specified literal replacement sequence.</p></li><li><p>String replaceAll(String regex, String replacement)<br>Replaces each substring of this string that matches the given regular expression with the given replacement.</p></li><li><p>String replaceFirst(String regex, String replacement)<br>Replaces the first substring of this string that matches the given regular expression with the given replacement.</p></li></ul><p><a href="https://stackoverflow.com/questions/10827872/difference-between-string-replace-and-replaceall" title="来自">from</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo博客同步步骤</title>
+    <link href="/444f8efd.html"/>
+    <url>/444f8efd.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="博客同步步骤"><a href="#博客同步步骤" class="headerlink" title="博客同步步骤"></a>博客同步步骤</h2><ol><li>在新电脑上拉取<a href="https://github.com/CodingYourAmbition/CodingYourAmbition.github.io.git">hexosync分支代码</a></li><li>安装nodejs(nvm),git</li><li>安装Hexo和Git插件 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br>npm install hexo-deployer-git --save<br>// 永久链接插件<br>npm install hexo-abbrlink --save<br></code></pre></td></tr></table></figure></li><li>根据package.json安装依赖 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm i<br></code></pre></td></tr></table></figure></li><li>运行<code>hexo g</code>，渲染生成，运行<code>hexo s</code>，预览网站</li><li>运行<code>hexo new post</code>编写新文章，或者修改博客其他内容</li><li>将新内容提交推送到Github，并运行<code>hexo g -d</code>进行部署</li><li>新内容自动部署到Github的main分支， 在<code>codingyourambition.github.io</code>查看内容</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>sync</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>synctest</title>
+    <link href="/2b5a1e45.html"/>
+    <url>/2b5a1e45.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="测试多端同步"><a href="#测试多端同步" class="headerlink" title="测试多端同步"></a>测试多端同步</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>test</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>test</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>测试文章</title>
+    <link href="/7a6a6b5a.html"/>
+    <url>/7a6a6b5a.html</url>
+    
+    <content type="html"><![CDATA[<p>s1mple远古头像</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Photo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>s1mple</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
