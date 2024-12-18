@@ -16,15 +16,15 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java8接口新特性">
+    <meta name="description" content="国内对操作GitHub上的仓库太慢，经常连接失败">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java8接口新特性">
-<meta property="og:url" content="http://s1mplecode.com/f7ff1dcb.html">
+<meta property="og:title" content="Git设置Github代理">
+<meta property="og:url" content="http://s1mplecode.com/9e5ded13.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="Java8接口新特性">
+<meta property="og:description" content="国内对操作GitHub上的仓库太慢，经常连接失败">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-17T07:42:13.000Z">
-<meta property="article:modified_time" content="2024-12-18T01:46:48.967Z">
+<meta property="article:published_time" content="2024-12-18T09:16:52.000Z">
+<meta property="article:modified_time" content="2024-12-18T09:21:25.748Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Java8接口新特性 - 简单代码</title>
+  <title>Git设置Github代理 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java8接口新特性"></span>
+            <span id="subtitle" data-typed-text="Git设置Github代理"></span>
           
         </div>
 
@@ -248,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-17 15:42" pubdate>
-          2024年12月17日 下午
+        <time datetime="2024-12-18 17:16" pubdate>
+          2024年12月18日 下午
         </time>
       </span>
     
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          638 字
+          332 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          6 分钟
+          3 分钟
         
       </span>
     
@@ -316,12 +316,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java8接口新特性</h1>
+            <h1 id="seo-header">Git设置Github代理</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-18T09:46:48+08:00
+                    本文最后更新于 2024-12-18T17:21:25+08:00
                   
                   
 
@@ -331,35 +331,21 @@
             
               <div class="markdown-body">
                 
-                <h3 id="1-JDK8中接口的新增"><a href="#1-JDK8中接口的新增" class="headerlink" title="1. JDK8中接口的新增"></a>1. JDK8中接口的新增</h3><p>在JDK8中针对接口有做增强，在JDK8之前</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">interface 接口名&#123;<br>    静态常量<span class="hljs-comment">;</span><br>    抽象方法<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>JDK8之后对接口做了增加，接口中可以有<strong>默认方法</strong>和<strong>静态方法</strong>,并且默认方法和静态方法都是隐式public的</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs abnf">interface 接口名&#123;<br>静态常量<span class="hljs-comment">;</span><br>抽象方法<span class="hljs-comment">;</span><br>默认方法<span class="hljs-comment">;</span><br>静态方法<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-默认方法"><a href="#2-默认方法" class="headerlink" title="2 默认方法"></a>2 默认方法</h3><h4 id="2-1-为什么要增加默认方法"><a href="#2-1-为什么要增加默认方法" class="headerlink" title="2.1 为什么要增加默认方法"></a>2.1 为什么要增加默认方法</h4><blockquote>
-<p>在JDK8以前接口中只能有抽象方法和静态常量，会存在以下的问题： 如果接口中新增抽象方法，那么实现类都必须要抽象这个抽象方法，非常不利于接口的扩展的 接口中新增抽象方法，所有实现类都需要重写这个方法，不利于接口的扩展</p>
-</blockquote>
-<h4 id="2-2-接口默认方法的格式"><a href="#2-2-接口默认方法的格式" class="headerlink" title="2.2 接口默认方法的格式"></a>2.2 接口默认方法的格式</h4><p>接口中默认方法的语法格式是</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-title class_"><span class="hljs-keyword">interface</span> 接口名</span>&#123;<br>    修饰符 <span class="hljs-keyword">default</span> 返回值类型 方法名&#123;<br>    方法体;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="一、代理设置"><a href="#一、代理设置" class="headerlink" title="一、代理设置"></a>一、代理设置</h2><h3 id="1、全局代理设置"><a href="#1、全局代理设置" class="headerlink" title="1、全局代理设置"></a>1、全局代理设置</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> http<span class="hljs-selector-class">.proxy</span> http:<span class="hljs-comment">//127.0.0.1:7890</span><br>git config <span class="hljs-attr">--global</span> https<span class="hljs-selector-class">.proxy</span> https:<span class="hljs-comment">//127.0.0.1:7890</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2-3-接口中默认方法的使用"><a href="#2-3-接口中默认方法的使用" class="headerlink" title="2.3 接口中默认方法的使用"></a>2.3 接口中默认方法的使用</h4><p>接口中的默认方法有两种使用方式</p>
-<ol>
-<li>实现类直接调用接口的默认方法</li>
-<li>实现类重写接口的默认方法</li>
-</ol>
-<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><p>JDK8中为接口新增了静态方法，作用也是为了接口的扩展</p>
-<h4 id="3-1-语法规则"><a href="#3-1-语法规则" class="headerlink" title="3.1 语法规则"></a>3.1 语法规则</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-title class_"><span class="hljs-keyword">interface</span> 接口名</span>&#123;<br>    修饰符 <span class="hljs-keyword">static</span> 返回值类型 方法名&#123;<br>    方法体;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这里可以打开clash查看代理设置，查看自己的端口是否为1080，不是的改为对应的端口</p>
+<h3 id="2、只对GitHub进行代理"><a href="#2、只对GitHub进行代理" class="headerlink" title="2、只对GitHub进行代理"></a>2、只对GitHub进行代理</h3><p>如果挂了全局代理，克隆coding之类的国内仓库会变慢，所以我建议使用如下命令，只对GitHub进行代理，对国内的仓库不影响</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> http.https:<span class="hljs-string">//github.com.proxy</span> https:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br>git config <span class="hljs-params">--global</span> https.https:<span class="hljs-string">//github.com.proxy</span> https:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-2-静态方法的使用"><a href="#3-2-静态方法的使用" class="headerlink" title="3.2 静态方法的使用"></a>3.2 静态方法的使用</h4><p>接口中的静态方法在实现类中是不能被重写的，调用的话只能通过接口类型来实现: 接口名.静态方法名();</p>
-<blockquote>
-<p>想信小伙伴们会有这种疑问 那接口中的静态方法能不能被继承呢 就是类实现接口 还能不能调用接口中的静态方法呢</p>
-</blockquote>
-<h3 id="4两者的区别介绍"><a href="#4两者的区别介绍" class="headerlink" title="4两者的区别介绍"></a>4两者的区别介绍</h3><ol>
-<li>默认方法通过实例调用，静态方法通过接口名调用</li>
-<li>默认方法可以被继承，实现类可以直接调用接口默认方法，也可以重写接口默认方法</li>
-<li>静态方法不能被继承，实现类不能重写接口的静态方法，只能使用接口名调用</li>
-</ol>
-<h3 id="Java9中允许接口包含私有方法"><a href="#Java9中允许接口包含私有方法" class="headerlink" title="Java9中允许接口包含私有方法"></a>Java9中允许接口包含私有方法</h3><p>Java9进一步扩展了接口的功能，允许接口包含私有方法（private methods）。这些私有方法只能在接口内部被其他默认方法或静态方法调用，不能被实现了该接口的类直接访问。</p>
+<p>如果在输入这条命令之前，已经输入全局代理的话，可以按照二、取消代理的方法进行取消</p>
+<p>注意：以上两点都是对https协议进行代理设置，也就是仅对<code>git clone https://www.github.com/xxxx/xxxx.git</code>这种命令有效。对于SSH协议，也就是<code>git clone git@github.com:xxxxxx/xxxxxx.git</code>这种，依旧是无效的</p>
+<h3 id="3、sock5代理设置"><a href="#3、sock5代理设置" class="headerlink" title="3、sock5代理设置"></a>3、sock5代理设置</h3><p>之前说的是http代理，有人反映ss暴露的是socks5。下面附上socks5代理的方法</p>
+<p>1、首先查看自己socks5的端口号，假设为：127.0.0.1:7890<br>2、输入以下命令：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> http.https:<span class="hljs-string">//github.com.proxy</span> socks5:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br>git config <span class="hljs-params">--global</span> https.https:<span class="hljs-string">//github.com.proxy</span> socks5:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br></code></pre></td></tr></table></figure>
 
+<h2 id="二、取消代理"><a href="#二、取消代理" class="headerlink" title="二、取消代理"></a>二、取消代理</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> http<span class="hljs-selector-class">.proxy</span><br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> https.proxy<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、查看已有配置"><a href="#三、查看已有配置" class="headerlink" title="三、查看已有配置"></a>三、查看已有配置</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--global -l</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -377,8 +363,22 @@
     
       <span class="category-chain">
         
-  <a href="/categories/java/" class="category-chain-item">java</a>
+  <a href="/categories/proxy/" class="category-chain-item">proxy</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/proxy/GitHub/" class="category-chain-item">GitHub</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/proxy/GitHub/Git/" class="category-chain-item">Git</a>
+  
+  
+
+  
+
   
 
       </span>
@@ -397,8 +397,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java8接口新特性</div>
-      <div>http://s1mplecode.com/f7ff1dcb.html</div>
+      <div>Git设置Github代理</div>
+      <div>http://s1mplecode.com/9e5ded13.html</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +410,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月17日</div>
+          <div>2024年12月18日</div>
         </div>
       
       
@@ -454,18 +454,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/design-pattern/prototype.html" title="设计模式之原型模式">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式之原型模式</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/653c71e1.html" title="工作中有气无力">
-                        <span class="hidden-mobile">工作中有气无力</span>
+                      <a href="/template-method.html" title="设计模式之模板方法模式">
+                        <span class="hidden-mobile">设计模式之模板方法模式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
