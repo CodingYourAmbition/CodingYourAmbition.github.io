@@ -1,9 +1,10 @@
 ---
 title: Java8接口新特性
-date: 2024-12-17 15:42:13
-categories: 
+categories:
   - java
 excerpt: Java8接口新特性
+abbrlink: f7ff1dcb
+date: 2024-12-17 15:42:13
 ---
 ### 1. JDK8中接口的新增
 
