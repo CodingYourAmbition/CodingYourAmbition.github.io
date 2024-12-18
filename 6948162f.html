@@ -16,15 +16,15 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java8接口新特性">
+    <meta name="description" content="模板方法模式通过把不变行为放到超类，去除子类中的重复代码，提升代码复用性和灵活性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java8接口新特性">
-<meta property="og:url" content="http://s1mplecode.com/f7ff1dcb.html">
+<meta property="og:title" content="设计模式之模板方法模式">
+<meta property="og:url" content="http://s1mplecode.com/6948162f.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="Java8接口新特性">
+<meta property="og:description" content="模板方法模式通过把不变行为放到超类，去除子类中的重复代码，提升代码复用性和灵活性">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-17T07:42:13.000Z">
-<meta property="article:modified_time" content="2024-12-18T01:46:48.967Z">
+<meta property="article:published_time" content="2024-12-18T08:25:13.000Z">
+<meta property="article:modified_time" content="2024-12-18T08:56:10.386Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Java8接口新特性 - 简单代码</title>
+  <title>设计模式之模板方法模式 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java8接口新特性"></span>
+            <span id="subtitle" data-typed-text="设计模式之模板方法模式"></span>
           
         </div>
 
@@ -248,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-17 15:42" pubdate>
-          2024年12月17日 下午
+        <time datetime="2024-12-18 16:25" pubdate>
+          2024年12月18日 下午
         </time>
       </span>
     
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          638 字
+          402 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          6 分钟
+          4 分钟
         
       </span>
     
@@ -316,12 +316,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java8接口新特性</h1>
+            <h1 id="seo-header">设计模式之模板方法模式</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-18T09:46:48+08:00
+                    本文最后更新于 2024-12-18T16:56:10+08:00
                   
                   
 
@@ -331,34 +331,28 @@
             
               <div class="markdown-body">
                 
-                <h3 id="1-JDK8中接口的新增"><a href="#1-JDK8中接口的新增" class="headerlink" title="1. JDK8中接口的新增"></a>1. JDK8中接口的新增</h3><p>在JDK8中针对接口有做增强，在JDK8之前</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">interface 接口名&#123;<br>    静态常量<span class="hljs-comment">;</span><br>    抽象方法<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>JDK8之后对接口做了增加，接口中可以有<strong>默认方法</strong>和<strong>静态方法</strong>,并且默认方法和静态方法都是隐式public的</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs abnf">interface 接口名&#123;<br>静态常量<span class="hljs-comment">;</span><br>抽象方法<span class="hljs-comment">;</span><br>默认方法<span class="hljs-comment">;</span><br>静态方法<span class="hljs-comment">;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-默认方法"><a href="#2-默认方法" class="headerlink" title="2 默认方法"></a>2 默认方法</h3><h4 id="2-1-为什么要增加默认方法"><a href="#2-1-为什么要增加默认方法" class="headerlink" title="2.1 为什么要增加默认方法"></a>2.1 为什么要增加默认方法</h4><blockquote>
-<p>在JDK8以前接口中只能有抽象方法和静态常量，会存在以下的问题： 如果接口中新增抽象方法，那么实现类都必须要抽象这个抽象方法，非常不利于接口的扩展的 接口中新增抽象方法，所有实现类都需要重写这个方法，不利于接口的扩展</p>
-</blockquote>
-<h4 id="2-2-接口默认方法的格式"><a href="#2-2-接口默认方法的格式" class="headerlink" title="2.2 接口默认方法的格式"></a>2.2 接口默认方法的格式</h4><p>接口中默认方法的语法格式是</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-title class_"><span class="hljs-keyword">interface</span> 接口名</span>&#123;<br>    修饰符 <span class="hljs-keyword">default</span> 返回值类型 方法名&#123;<br>    方法体;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="2-3-接口中默认方法的使用"><a href="#2-3-接口中默认方法的使用" class="headerlink" title="2.3 接口中默认方法的使用"></a>2.3 接口中默认方法的使用</h4><p>接口中的默认方法有两种使用方式</p>
-<ol>
-<li>实现类直接调用接口的默认方法</li>
-<li>实现类重写接口的默认方法</li>
-</ol>
-<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3. 静态方法"></a>3. 静态方法</h3><p>JDK8中为接口新增了静态方法，作用也是为了接口的扩展</p>
-<h4 id="3-1-语法规则"><a href="#3-1-语法规则" class="headerlink" title="3.1 语法规则"></a>3.1 语法规则</h4><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-title class_"><span class="hljs-keyword">interface</span> 接口名</span>&#123;<br>    修饰符 <span class="hljs-keyword">static</span> 返回值类型 方法名&#123;<br>    方法体;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="3-2-静态方法的使用"><a href="#3-2-静态方法的使用" class="headerlink" title="3.2 静态方法的使用"></a>3.2 静态方法的使用</h4><p>接口中的静态方法在实现类中是不能被重写的，调用的话只能通过接口类型来实现: 接口名.静态方法名();</p>
-<blockquote>
-<p>想信小伙伴们会有这种疑问 那接口中的静态方法能不能被继承呢 就是类实现接口 还能不能调用接口中的静态方法呢</p>
-</blockquote>
-<h3 id="4两者的区别介绍"><a href="#4两者的区别介绍" class="headerlink" title="4两者的区别介绍"></a>4两者的区别介绍</h3><ol>
-<li>默认方法通过实例调用，静态方法通过接口名调用</li>
-<li>默认方法可以被继承，实现类可以直接调用接口默认方法，也可以重写接口默认方法</li>
-<li>静态方法不能被继承，实现类不能重写接口的静态方法，只能使用接口名调用</li>
-</ol>
-<h3 id="Java9中允许接口包含私有方法"><a href="#Java9中允许接口包含私有方法" class="headerlink" title="Java9中允许接口包含私有方法"></a>Java9中允许接口包含私有方法</h3><p>Java9进一步扩展了接口的功能，允许接口包含私有方法（private methods）。这些私有方法只能在接口内部被其他默认方法或静态方法调用，不能被实现了该接口的类直接访问。</p>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>模板方法模式（Template Method），定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>在基类中定义算法的不变部分提升了代码复用性</li>
+<li>将通用行为封装在一个地方简化了代码维护</li>
+<li>允许子类覆盖算法的特定步骤增强了代码灵活性</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>以偷东西为例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StealingMethod</span> &#123;<br><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> String <span class="hljs-title function_">pickTarget</span><span class="hljs-params">()</span>;<br><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confuseTarget</span><span class="hljs-params">(String target)</span>;<br><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">stealTheItem</span><span class="hljs-params">(String target)</span>;<br>  <span class="hljs-comment">// 模板方法</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">steal</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">target</span> <span class="hljs-operator">=</span> pickTarget();<br>    LOGGER.info(<span class="hljs-string">&quot;The target has been chosen as &#123;&#125;.&quot;</span>, target);<br>    confuseTarget(target);<br>    stealTheItem(target);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>偷东西方式一</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SubtleMethod</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">StealingMethod</span> &#123;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> String <span class="hljs-title function_">pickTarget</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;shop keeper&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confuseTarget</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;Approach the &#123;&#125; with tears running and hug him!&quot;</span>, target);<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">stealTheItem</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;While in close contact grab the &#123;&#125;&#x27;s wallet.&quot;</span>, target);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>偷东西方式二</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HitAndRunMethod</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">StealingMethod</span> &#123;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> String <span class="hljs-title function_">pickTarget</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;old goblin woman&quot;</span>;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">confuseTarget</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;Approach the &#123;&#125; from behind.&quot;</span>, target);<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">stealTheItem</span><span class="hljs-params">(String target)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;Grab the handbag and run away fast!&quot;</span>);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>小偷</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HalflingThief</span> &#123;<br><br>  <span class="hljs-keyword">private</span> StealingMethod method;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">HalflingThief</span><span class="hljs-params">(StealingMethod method)</span> &#123;<br>    <span class="hljs-built_in">this</span>.method = method;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">steal</span><span class="hljs-params">()</span> &#123;<br>    method.steal();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">changeMethod</span><span class="hljs-params">(StealingMethod method)</span> &#123;<br>    <span class="hljs-built_in">this</span>.method = method;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>应用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">thief</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HalflingThief</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">HitAndRunMethod</span>());<br>    thief.steal();<br>    thief.changeMethod(<span class="hljs-keyword">new</span> <span class="hljs-title class_">SubtleMethod</span>());<br>    thief.steal();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">11:06:01.721 [main] INFO com.iluwatar.templatemethod.StealingMethod -- The target has been chosen as old goblin woman.<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.HitAndRunMethod -- Approach the old goblin woman from behind.<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.HitAndRunMethod -- Grab the handbag and run away fast!<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.StealingMethod -- The target has been chosen as shop keeper.<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.SubtleMethod -- Approach the shop keeper with tears running and hug him!<br>11:06:01.723 [main] INFO com.iluwatar.templatemethod.SubtleMethod -- While in close contact grab the shop keeper&#x27;s wallet.<br></code></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>可能导致类的数量增加，使系统更加复杂</li>
+<li>需要仔细设计，以确保公开给子类的步骤是有用和有意义的</li>
+</ul>
 
                 
               </div>
@@ -377,7 +371,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/java/" class="category-chain-item">java</a>
+  <a href="/categories/design-pattern/" class="category-chain-item">design-pattern</a>
   
   
 
@@ -397,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java8接口新特性</div>
-      <div>http://s1mplecode.com/f7ff1dcb.html</div>
+      <div>设计模式之模板方法模式</div>
+      <div>http://s1mplecode.com/6948162f.html</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +404,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月17日</div>
+          <div>2024年12月18日</div>
         </div>
       
       
@@ -454,18 +448,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/design-pattern/prototype.html" title="设计模式之原型模式">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式之原型模式</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/653c71e1.html" title="工作中有气无力">
-                        <span class="hidden-mobile">工作中有气无力</span>
+                      <a href="/design-pattern/prototype.html" title="设计模式之原型模式">
+                        <span class="hidden-mobile">设计模式之原型模式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
