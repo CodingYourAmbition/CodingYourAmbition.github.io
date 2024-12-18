@@ -5,7 +5,7 @@ categories:
   - GitHub
   - Git
 excerpt: 国内对操作GitHub上的仓库太慢，经常连接失败
-abbrlink: 9e5ded13
+abbrlink: proxy/github
 date: 2024-12-18 17:16:52
 ---
 ## 一、代理设置
