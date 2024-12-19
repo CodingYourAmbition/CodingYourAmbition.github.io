@@ -24,7 +24,7 @@
 <meta property="og:description" content="如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-19T07:21:40.000Z">
-<meta property="article:modified_time" content="2024-12-19T09:22:59.566Z">
+<meta property="article:modified_time" content="2024-12-19T09:30:51.661Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          2.9k 字
         
       </span>
     
@@ -321,7 +321,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-19T17:22:59+08:00
+                    本文最后更新于 2024-12-19T17:30:51+08:00
                   
                   
 
@@ -343,6 +343,7 @@
 <p>4）当前对象的实例变量如果是一个聚集，那么聚集中的元素也都是朋友 如果属性是一个对象, 那么属性和对象里的元素都是朋友</p>
 <p>5）当前对象所创建的对象</p>
 <p><strong>任何一个对象，如果满足上面的条件之一，就是当前对象的“朋友”；否则就是“陌生人”。</strong></p>
+<p><strong>出现在局部变量中的类则不是直接的朋友。也就是说，陌生的类最好不要作为局部变量的形式出现在类的内部。</strong></p>
 <p><strong>狭义的迪米特法则的缺点：</strong></p>
 <p><strong>在系统里造出大量的小方法，这些方法仅仅是传递间接的调用，与系统的业务逻辑无关。 遵循类之间的迪米特法则会是一个系统的局部设计简化，因为每一个局部都不会和远距离的对象有直接的关联。但是，这也会造成系统的不同模块之间的通信效率降低，也会使系统的不同模块之间不容易协调。</strong></p>
 <h3 id="2-广义的迪米特法则在类的设计上的体现："><a href="#2-广义的迪米特法则在类的设计上的体现：" class="headerlink" title="2. 广义的迪米特法则在类的设计上的体现："></a>2. 广义的迪米特法则在类的设计上的体现：</h3><ul>
