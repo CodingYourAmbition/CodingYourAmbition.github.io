@@ -1,11 +1,9 @@
 ---
 title: Hexo博客同步步骤
 excerpt: Hexo博客同步步骤
-tags:
-  - sync
 categories:
   - 博客
-abbrlink: 444f8efd
+abbrlink: sync
 date: 2024-04-16 13:32:59
 ---
 ## 博客同步步骤
@@ -15,6 +13,8 @@ date: 2024-04-16 13:32:59
     ```shell
         npm install -g hexo-cli
         npm install hexo-deployer-git --save
+        // 永久链接插件
+        npm install hexo-abbrlink --save
     ```
 4. 根据package.json安装依赖
     ```shell
@@ -24,7 +24,5 @@ date: 2024-04-16 13:32:59
 7. 运行`hexo new post`编写新文章，或者修改博客其他内容
 8. 将新内容提交推送到Github，并运行`hexo g -d`进行部署
 9. 新内容自动部署到Github的main分支， 在`codingyourambition.github.io`查看内容
-
-   
 
 
