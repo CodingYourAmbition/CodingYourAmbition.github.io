@@ -15,6 +15,10 @@ date: 2024-04-16 13:32:59
         npm install hexo-deployer-git --save
         // 永久链接插件
         npm install hexo-abbrlink --save
+        // Google SEO优化
+        npm install hexo-generator-sitemap --save
+        // BaiDu SEO优化
+        npm install hexo-generator-baidu-sitemap --save
     ```
 4. 根据package.json安装依赖
     ```shell
