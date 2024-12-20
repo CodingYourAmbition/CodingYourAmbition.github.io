@@ -16,23 +16,25 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="国内对操作GitHub上的仓库太慢，经常连接失败">
+    <meta name="description" content="又称门面模式，完美地体现了依赖倒转原则和迪米特法则的思想">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git设置Github代理">
-<meta property="og:url" content="http://s1mplecode.com/proxy/github.html">
+<meta property="og:title" content="设计模式之外观模式">
+<meta property="og:url" content="http://s1mplecode.com/design-pattern/facade.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="国内对操作GitHub上的仓库太慢，经常连接失败">
+<meta property="og:description" content="又称门面模式，完美地体现了依赖倒转原则和迪米特法则的思想">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-18T09:16:52.000Z">
-<meta property="article:modified_time" content="2024-12-18T09:22:32.420Z">
+<meta property="og:image" content="http://s1mplecode.com/images/facade.png">
+<meta property="article:published_time" content="2024-12-20T03:29:27.000Z">
+<meta property="article:modified_time" content="2024-12-20T06:46:21.482Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://s1mplecode.com/images/facade.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Git设置Github代理 - 简单代码</title>
+  <title>设计模式之外观模式 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Git设置Github代理"></span>
+            <span id="subtitle" data-typed-text="设计模式之外观模式"></span>
           
         </div>
 
@@ -248,8 +250,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-18 17:16" pubdate>
-          2024年12月18日 下午
+        <time datetime="2024-12-20 11:29" pubdate>
+          2024年12月20日 上午
         </time>
       </span>
     
@@ -260,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          332 字
+          399 字
         
       </span>
     
@@ -271,7 +273,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -316,12 +318,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Git设置Github代理</h1>
+            <h1 id="seo-header">设计模式之外观模式</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-18T17:22:32+08:00
+                    本文最后更新于 2024-12-20T14:46:21+08:00
                   
                   
 
@@ -331,21 +333,13 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一、代理设置"><a href="#一、代理设置" class="headerlink" title="一、代理设置"></a>一、代理设置</h2><h3 id="1、全局代理设置"><a href="#1、全局代理设置" class="headerlink" title="1、全局代理设置"></a>1、全局代理设置</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> http<span class="hljs-selector-class">.proxy</span> http:<span class="hljs-comment">//127.0.0.1:7890</span><br>git config <span class="hljs-attr">--global</span> https<span class="hljs-selector-class">.proxy</span> https:<span class="hljs-comment">//127.0.0.1:7890</span><br></code></pre></td></tr></table></figure>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用</p>
+<h2 id="何时使用外观模式"><a href="#何时使用外观模式" class="headerlink" title="何时使用外观模式"></a>何时使用外观模式</h2><ol>
+<li>在设计初期阶段，应该要有意识的将不同的两个层分离。比如经典的三层架构，就需要考虑在数据访问层和业务逻辑层、业务逻辑层和表示层的层与层之间建立外观Facade，这样可以为复杂的子系统提供一个简单的接口，使得耦合大大降低</li>
+<li>在开发阶段，子系统往往因为不断的重构演化而变得越来越复杂，大多数的模式使用时也都会产生很多很小的类，这本是好事，但也给外部调用它们的用户程序带来了使用上的困难，增加外观Facade可以提供一个简单的接口，减少它们之间的依赖</li>
+<li>在维护一个遗留的大型系统时，可能这个系统已经非常难以维护和扩展了，但因为它包含非常重要的功能，新的需求开发必须要依赖于它。此时用外观模式Facade也是非常合适的。你可以为新系统开发一个外观Facade类，来提供设计粗糙或高度复杂的遗留代码的比较清晰简单的接口，让新系统与Facade对象交互，Facade与遗留代码交互所有复杂的工作<br><img src="/images/facade.png" srcset="/img/loading.gif" lazyload alt="Facade接口"></li>
+</ol>
 
-<p>这里可以打开clash查看代理设置，查看自己的端口是否为1080，不是的改为对应的端口</p>
-<h3 id="2、只对GitHub进行代理"><a href="#2、只对GitHub进行代理" class="headerlink" title="2、只对GitHub进行代理"></a>2、只对GitHub进行代理</h3><p>如果挂了全局代理，克隆coding之类的国内仓库会变慢，所以我建议使用如下命令，只对GitHub进行代理，对国内的仓库不影响</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> http.https:<span class="hljs-string">//github.com.proxy</span> https:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br>git config <span class="hljs-params">--global</span> https.https:<span class="hljs-string">//github.com.proxy</span> https:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br></code></pre></td></tr></table></figure>
-
-<p>如果在输入这条命令之前，已经输入全局代理的话，可以按照二、取消代理的方法进行取消</p>
-<p>注意：以上两点都是对https协议进行代理设置，也就是仅对<code>git clone https://www.github.com/xxxx/xxxx.git</code>这种命令有效。对于SSH协议，也就是<code>git clone git@github.com:xxxxxx/xxxxxx.git</code>这种，依旧是无效的</p>
-<h3 id="3、sock5代理设置"><a href="#3、sock5代理设置" class="headerlink" title="3、sock5代理设置"></a>3、sock5代理设置</h3><p>之前说的是http代理，有人反映ss暴露的是socks5。下面附上socks5代理的方法</p>
-<p>1、首先查看自己socks5的端口号，假设为：127.0.0.1:7890<br>2、输入以下命令：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">git config <span class="hljs-params">--global</span> http.https:<span class="hljs-string">//github.com.proxy</span> socks5:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br>git config <span class="hljs-params">--global</span> https.https:<span class="hljs-string">//github.com.proxy</span> socks5:<span class="hljs-string">//127.0.0.1</span><span class="hljs-function">:7890</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="二、取消代理"><a href="#二、取消代理" class="headerlink" title="二、取消代理"></a>二、取消代理</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> http<span class="hljs-selector-class">.proxy</span><br>git config <span class="hljs-attr">--global</span> <span class="hljs-attr">--unset</span> https.proxy<br></code></pre></td></tr></table></figure>
-
-<h2 id="三、查看已有配置"><a href="#三、查看已有配置" class="headerlink" title="三、查看已有配置"></a>三、查看已有配置</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lua">git <span class="hljs-built_in">config</span> <span class="hljs-comment">--global -l</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -363,22 +357,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/proxy/" class="category-chain-item">proxy</a>
+  <a href="/categories/design-pattern/" class="category-chain-item">design-pattern</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/proxy/GitHub/" class="category-chain-item">GitHub</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/proxy/GitHub/Git/" class="category-chain-item">Git</a>
-  
-  
-
-  
-
   
 
       </span>
@@ -397,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Git设置Github代理</div>
-      <div>http://s1mplecode.com/proxy/github.html</div>
+      <div>设计模式之外观模式</div>
+      <div>http://s1mplecode.com/design-pattern/facade.html</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月18日</div>
+          <div>2024年12月20日</div>
         </div>
       
       
@@ -454,18 +434,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/design-pattern/law-of-demeter.html" title="设计模式之迪米特法则">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式之迪米特法则</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/design-pattern/template-method.html" title="设计模式之模板方法模式">
-                        <span class="hidden-mobile">设计模式之模板方法模式</span>
+                      <a href="/design-pattern/law-of-demeter.html" title="设计模式之迪米特法则">
+                        <span class="hidden-mobile">设计模式之迪米特法则</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
