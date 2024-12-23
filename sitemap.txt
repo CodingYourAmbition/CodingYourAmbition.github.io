@@ -1,3 +1,4 @@
+http://s1mplecode.com/design-pattern/builder.html
 http://s1mplecode.com/design-pattern/facade.html
 http://s1mplecode.com/design-pattern/law-of-demeter.html
 http://s1mplecode.com/sync.html
