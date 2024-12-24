@@ -982,6 +982,12 @@ page:
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
+coming-soon:
+  enable: true
+  banner_img: /img/chuyin.jpg
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
+
 
 #---------------------------
 # 404页
