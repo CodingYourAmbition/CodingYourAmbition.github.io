@@ -24,7 +24,7 @@
 <meta property="og:description" content="一种基本的创建型模式，允许逐步构建复杂对象">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-23T07:38:10.000Z">
-<meta property="article:modified_time" content="2024-12-23T08:12:04.500Z">
+<meta property="article:modified_time" content="2024-12-23T08:27:51.550Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          536 字
         
       </span>
     
@@ -321,7 +321,7 @@
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-23T16:12:04+08:00
+                    本文最后更新于 2024-12-23T16:27:51+08:00
                   
                   
 
@@ -336,7 +336,7 @@
 <li>与其他创作模式相比，对构建过程有更多的控制</li>
 <li>支持逐步构造对象、推迟构造步骤或递归地运行步骤</li>
 <li>可以构造需要子对象的复杂组合的对象，最终产品与对象的组成的部分以及对象的组装过程分离开来</li>
-<li>单一责任原则，可以将复杂的构造代码与产品的业务逻辑隔离开来</li>
+<li>单一职责原则，可以将复杂的构造代码与产品的业务逻辑隔分离开来</li>
 </ul>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>创建英雄</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Hero</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Profession profession;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> HairType hairType;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> HairColor hairColor;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Armor armor;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Weapon weapon;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Hero</span><span class="hljs-params">(Builder builder)</span> &#123;<br>        <span class="hljs-built_in">this</span>.profession = builder.profession;<br>        <span class="hljs-built_in">this</span>.name = builder.name;<br>        <span class="hljs-built_in">this</span>.hairColor = builder.hairColor;<br>        <span class="hljs-built_in">this</span>.hairType = builder.hairType;<br>        <span class="hljs-built_in">this</span>.weapon = builder.weapon;<br>        <span class="hljs-built_in">this</span>.armor = builder.armor;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -455,6 +455,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/design-pattern/observer.html" title="设计模式之观察者模式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">设计模式之观察者模式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -824,7 +830,7 @@
 
 
   <script type="text/javascript">
-  document.getElementById("g-post-count-id").innerHTML = "共7.3k字";
+  document.getElementById("g-post-count-id").innerHTML = "共8.1k字";
 </script>
 
 

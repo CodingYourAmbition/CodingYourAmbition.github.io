@@ -16,25 +16,23 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="又称门面模式，完美地体现了依赖倒转原则和迪米特法则的思想">
+    <meta name="description" content="又叫发布-订阅（Publish&#x2F;Subscribe）模式。实现Observer接口，以主动监视和响应Java应用程序中的状态更改，从而提高事件驱动的编程效率">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之外观模式">
-<meta property="og:url" content="http://s1mplecode.com/design-pattern/facade.html">
+<meta property="og:title" content="设计模式之观察者模式">
+<meta property="og:url" content="http://s1mplecode.com/design-pattern/observer.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="又称门面模式，完美地体现了依赖倒转原则和迪米特法则的思想">
+<meta property="og:description" content="又叫发布-订阅（Publish&#x2F;Subscribe）模式。实现Observer接口，以主动监视和响应Java应用程序中的状态更改，从而提高事件驱动的编程效率">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://s1mplecode.com/images/facade.png">
-<meta property="article:published_time" content="2024-12-20T03:29:27.000Z">
-<meta property="article:modified_time" content="2024-12-20T07:26:42.503Z">
+<meta property="article:published_time" content="2024-12-24T01:33:20.000Z">
+<meta property="article:modified_time" content="2024-12-24T01:58:59.907Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://s1mplecode.com/images/facade.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>设计模式之外观模式 - 简单代码</title>
+  <title>设计模式之观察者模式 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="设计模式之外观模式"></span>
+            <span id="subtitle" data-typed-text="设计模式之观察者模式"></span>
           
         </div>
 
@@ -250,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-20 11:29" pubdate>
-          2024年12月20日 上午
+        <time datetime="2024-12-24 09:33" pubdate>
+          2024年12月24日 上午
         </time>
       </span>
     
@@ -262,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          877 字
+          744 字
         
       </span>
     
@@ -273,7 +271,7 @@
         
         
         
-          8 分钟
+          7 分钟
         
       </span>
     
@@ -318,12 +316,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">设计模式之外观模式</h1>
+            <h1 id="seo-header">设计模式之观察者模式</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-20T15:26:42+08:00
+                    本文最后更新于 2024-12-24T09:58:59+08:00
                   
                   
 
@@ -333,69 +331,30 @@
             
               <div class="markdown-body">
                 
-                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>外观模式（Facade），为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用</p>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>观察者模式（Observer）定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己</p>
 <h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>将客户端与子系统组件隔离开来，使其更易于使用并减少依赖关系</li>
-<li>促进子系统与其客户端之间的弱耦合</li>
-<li>简化复杂系统的API</li>
+<li>促进了松耦合，允许主题及其观察者在没有紧密依赖的情况下进行交互，从而简化了维护和可伸缩性</li>
+<li>允许动态订阅和取消订阅观察者</li>
 </ul>
-<h2 id="何时使用外观模式"><a href="#何时使用外观模式" class="headerlink" title="何时使用外观模式"></a>何时使用外观模式</h2><ol>
-<li>在设计初期阶段，应该要有意识的将不同的两个层分离。比如经典的三层架构，就需要考虑在数据访问层和业务逻辑层、业务逻辑层和表示层的层与层之间建立外观Facade，这样可以为复杂的子系统提供一个简单的接口，使得耦合大大降低</li>
-<li>在开发阶段，子系统往往因为不断的重构演化而变得越来越复杂，大多数的模式使用时也都会产生很多很小的类，这本是好事，但也给外部调用它们的用户程序带来了使用上的困难，增加外观Facade可以提供一个简单的接口，减少它们之间的依赖</li>
-<li>在维护一个遗留的大型系统时，可能这个系统已经非常难以维护和扩展了，但因为它包含非常重要的功能，新的需求开发必须要依赖于它。此时用外观模式Facade也是非常合适的。你可以为新系统开发一个外观Facade类，来提供设计粗糙或高度复杂的遗留代码的比较清晰简单的接口，让新系统与Facade对象交互，Facade与遗留代码交互所有复杂的工作</li>
-</ol>
-<p><img src="/images/facade.png" srcset="/img/loading.gif" lazyload alt="Facade接口"></p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>如果没有正确实现，facade可能成为与应用程序的所有类耦合的对象（上帝对象）</p>
-<h3 id="什么是-God-Object（上帝对象）"><a href="#什么是-God-Object（上帝对象）" class="headerlink" title="什么是 God Object（上帝对象）"></a>什么是 God Object（上帝对象）</h3><ul>
-<li>上帝对象是一个过于庞大、知道太多、做太多事情的对象</li>
-<li>它往往与系统中的大多数类都有耦合关系</li>
-<li>违反了单一职责原则，难以维护和测试</li>
+<h2 id="什么时候使用观察者模式"><a href="#什么时候使用观察者模式" class="headerlink" title="什么时候使用观察者模式"></a>什么时候使用观察者模式</h2><ul>
+<li>当一个抽象有两个方面时，其中一个依赖于另一个。将这些方面封装在单独的对象中，可以独立地更改和重用它们</li>
+<li>当对一个对象的更改需要更改其他对象时，而且通常你不知道需要更改多少对象</li>
+<li>一个对象应该能够通知其他对象，而不需要假设这些对象是谁。换句话说，你不希望这些对象紧密耦合</li>
 </ul>
-<h4 id="Facade-变成-God-Object-的原因"><a href="#Facade-变成-God-Object-的原因" class="headerlink" title="Facade 变成 God Object 的原因"></a>Facade 变成 God Object 的原因</h4><ol>
-<li>职责过度扩张</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 糟糕的实现</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BadFacade</span> &#123;<br>    <span class="hljs-keyword">private</span> ServiceA serviceA;<br>    <span class="hljs-keyword">private</span> ServiceB serviceB;<br>    <span class="hljs-keyword">private</span> ServiceC serviceC;<br>    <span class="hljs-comment">// ... 更多服务</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doEverything</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 处理所有业务逻辑</span><br>        serviceA.doSomething();<br>        serviceB.process();<br>        serviceC.handle();<br>        <span class="hljs-comment">// ... 大量业务逻辑</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>霍比特人和半兽人(观察者)对天气(主题)的反应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">WeatherObserver</span> &#123;<br><br>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(WeatherType currentWeather)</span>;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Orcs</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WeatherObserver</span> &#123;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(WeatherType currentWeather)</span> &#123;<br>    LOGGER.info(<span class="hljs-string">&quot;The orcs are facing &quot;</span> + currentWeather.getDescription() + <span class="hljs-string">&quot; weather now&quot;</span>);<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Hobbits</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WeatherObserver</span> &#123;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">update</span><span class="hljs-params">(WeatherType currentWeather)</span> &#123;<br>    <span class="hljs-keyword">switch</span> (currentWeather) &#123;<br>      LOGGER.info(<span class="hljs-string">&quot;The hobbits are facing &quot;</span> + currentWeather.getDescription() + <span class="hljs-string">&quot; weather now&quot;</span>);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>2.过度集中的控制</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GoodFacade</span> &#123;<br>    <span class="hljs-keyword">private</span> SubsystemA subsystemA;<br>    <span class="hljs-keyword">private</span> SubsystemB subsystemB;<br><br>    <span class="hljs-comment">// 只提供必要的高层接口</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operation</span><span class="hljs-params">()</span> &#123;<br>        subsystemA.operationA();<br>        subsystemB.operationB();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Weather</span> &#123;<br><br>  <span class="hljs-keyword">private</span> WeatherType currentWeather;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> List&lt;WeatherObserver&gt; observers;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">Weather</span><span class="hljs-params">()</span> &#123;<br>    observers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    currentWeather = WeatherType.SUNNY;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addObserver</span><span class="hljs-params">(WeatherObserver obs)</span> &#123;<br>    observers.add(obs);<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">removeObserver</span><span class="hljs-params">(WeatherObserver obs)</span> &#123;<br>    observers.remove(obs);<br>  &#125;<br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * Makes time pass for weather.</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">timePasses</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">enumValues</span> <span class="hljs-operator">=</span> WeatherType.values();<br>    currentWeather = enumValues[(currentWeather.ordinal() + <span class="hljs-number">1</span>) % enumValues.length];<br>    LOGGER.info(<span class="hljs-string">&quot;The weather changed to &#123;&#125;.&quot;</span>, currentWeather);<br>    notifyObservers();<br>  &#125;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">notifyObservers</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> obs : observers) &#123;<br>      obs.update(currentWeather);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="如何避免-Facade-变成-God-Object"><a href="#如何避免-Facade-变成-God-Object" class="headerlink" title="如何避免 Facade 变成 God Object"></a>如何避免 Facade 变成 God Object</h4><ol>
-<li>保持单一职责</li>
-</ol>
-<ul>
-<li>Facade 应该只负责协调和委派</li>
-<li>不要在 Facade 中实现具体的业务逻辑</li>
-</ul>
-<ol start="2">
-<li>合理分层</li>
-</ol>
-<ul>
-<li>可以使用多个 Facade</li>
-<li>每个 Facade 负责一个特定的子系统</li>
-</ul>
-<ol start="3">
-<li>接口隔离</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 分离接口</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">OrderFacade</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">processOrder</span><span class="hljs-params">()</span>;<br>&#125;<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">PaymentFacade</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">processPayment</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>  <span class="hljs-type">var</span> <span class="hljs-variable">weather</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Weather</span>();<br>  weather.addObserver(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Orcs</span>());<br>  weather.addObserver(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Hobbits</span>());<br><br>  weather.timePasses();<br>  weather.timePasses();<br>  weather.timePasses();<br>  weather.timePasses();<br><br>  <span class="hljs-comment">// Generic observer inspired by Java Generics and Collections by Naftalin &amp; Wadler</span><br>  LOGGER.info(<span class="hljs-string">&quot;--Running generic version--&quot;</span>);<br>  <span class="hljs-type">var</span> <span class="hljs-variable">genericWeather</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GenWeather</span>();<br>  genericWeather.addObserver(<span class="hljs-keyword">new</span> <span class="hljs-title class_">GenOrcs</span>());<br>  genericWeather.addObserver(<span class="hljs-keyword">new</span> <span class="hljs-title class_">GenHobbits</span>());<br><br>  genericWeather.timePasses();<br>  genericWeather.timePasses();<br>  genericWeather.timePasses();<br>  genericWeather.timePasses();<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>限制知识范围</li>
-</ol>
-<ul>
-<li>Facade 不需要知道所有细节</li>
-<li>只暴露必要的功能</li>
-</ul>
-<h4 id="好的实践示例"><a href="#好的实践示例" class="headerlink" title="好的实践示例"></a>好的实践示例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 分离关注点的 Facade 实现</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">OrderProcessingFacade</span> &#123;<br>    <span class="hljs-keyword">private</span> OrderValidator validator;<br>    <span class="hljs-keyword">private</span> OrderProcessor processor;<br>    <span class="hljs-keyword">private</span> NotificationService notifier;<br><br>    <span class="hljs-keyword">public</span> OrderResult <span class="hljs-title function_">processOrder</span><span class="hljs-params">(Order order)</span> &#123;<br>        <span class="hljs-comment">// 只协调核心流程，不包含具体实现</span><br>        <span class="hljs-keyword">if</span> (validator.validate(order)) &#123;<br>            <span class="hljs-type">OrderResult</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> processor.process(order);<br>            notifier.notify(result);<br>            <span class="hljs-keyword">return</span> result;<br>        &#125;<br>        <span class="hljs-keyword">return</span> OrderResult.failed();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.310</span> [main] INFO com.iluwatar.observer.Weather -- The weather changed to rainy.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Orcs -- The orcs are facing Rainy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Hobbits -- The hobbits are facing Rainy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Weather -- The weather changed to windy.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Orcs -- The orcs are facing Windy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Hobbits -- The hobbits are facing Windy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Weather -- The weather changed to cold.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Orcs -- The orcs are facing Cold weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Hobbits -- The hobbits are facing Cold weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Weather -- The weather changed to sunny.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Orcs -- The orcs are facing Sunny weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.Hobbits -- The hobbits are facing Sunny weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.312</span> [main] INFO com.iluwatar.observer.App -- --Running generic version--<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenWeather -- The weather changed to rainy.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenOrcs -- The orcs are facing Rainy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenHobbits -- The hobbits are facing Rainy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenWeather -- The weather changed to windy.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenOrcs -- The orcs are facing Windy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenHobbits -- The hobbits are facing Windy weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenWeather -- The weather changed to cold.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenOrcs -- The orcs are facing Cold weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenHobbits -- The hobbits are facing Cold weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenWeather -- The weather changed to sunny.<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenOrcs -- The orcs are facing Sunny weather now<br><span class="hljs-number">21</span>:<span class="hljs-number">28</span>:<span class="hljs-number">08.313</span> [main] INFO com.iluwatar.observer.generic.GenHobbits -- The hobbits are facing Sunny weather now<br></code></pre></td></tr></table></figure>
 
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>Facade 模式本身是好的，问题在于实现方式</li>
-<li>避免让 Facade 承担过多责任</li>
-<li>保持 Facade 的简单性和专注性</li>
-<li>如果发现 Facade 变得过于复杂，考虑拆分成多个专门的 Facade</li>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>如果没有正确注销观察者，可能导致内存泄漏</li>
+<li>未指定通知的顺序，可能导致潜在的意外行为</li>
+<li>大量观察者可能导致性能问题</li>
 </ul>
-<blockquote>
-<p>记住：好的 Facade 应该像一个优秀的管理者，知道如何委派工作，而不是事事亲力亲为</p>
-</blockquote>
 
                 
               </div>
@@ -434,8 +393,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>设计模式之外观模式</div>
-      <div>http://s1mplecode.com/design-pattern/facade.html</div>
+      <div>设计模式之观察者模式</div>
+      <div>http://s1mplecode.com/design-pattern/observer.html</div>
     </div>
     <div class="license-meta">
       
@@ -447,7 +406,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月20日</div>
+          <div>2024年12月24日</div>
         </div>
       
       
@@ -491,18 +450,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/design-pattern/builder.html" title="设计模式之建造者模式">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式之建造者模式</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/design-pattern/law-of-demeter.html" title="设计模式之迪米特法则">
-                        <span class="hidden-mobile">设计模式之迪米特法则</span>
+                      <a href="/design-pattern/builder.html" title="设计模式之建造者模式">
+                        <span class="hidden-mobile">设计模式之建造者模式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
