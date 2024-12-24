@@ -1,7 +1,5 @@
 ---
-title: 下期预告
-subtitle: 即将发布的博客主题
-date: 2024-12-24 10:14:25
+layout: false
 ---
 <div class="preview-container">
   <div class="preview-card">
