@@ -4,6 +4,40 @@ subtitle: 即将发布的博客主题
 date: 2024-12-24 10:14:25
 layout: coming-soon
 ---
+<div class="preview-container">
+  <div class="preview-card">
+    <h2 class="preview-title">UML类图</h2>
+    <div class="preview-meta">
+      <span>计划发布时间: 2024-12-30</span>
+    </div>
+    <div>
+      <span class="preview-tag">UML</span>
+    </div>
+    <p class="preview-description">
+      UML类图的图标和线条经常忘，想总结一下
+    </p>
+    <div class="progress-container">
+      <div class="progress-bar" style="width: 60%"></div>
+    </div>
+  </div>
+
+  <div class="preview-card">
+    <h2 class="preview-title">自定义页面如何添加</h2>
+    <div class="preview-meta">
+      <span>计划发布时间: 2025-01-05</span>
+    </div>
+    <div>
+      <span class="preview-tag">hexo</span>
+    </div>
+    <p class="preview-description">
+      自定义页面尝试
+    </p>
+    <div class="progress-container">
+      <div class="progress-bar" style="width: 30%"></div>
+    </div>
+  </div>
+</div>
+
 <style>
   .preview-container {
     max-width: 800px;
@@ -66,42 +100,3 @@ layout: coming-soon
     transition: width 0.3s ease;
   }
 </style>
-
-<div class="preview-container">
-  <div class="preview-card">
-    <h2 class="preview-title">深入理解 React Hooks</h2>
-    <div class="preview-meta">
-      <span>计划发布时间: 2024-12-30</span>
-    </div>
-    <div>
-      <span class="preview-tag">React</span>
-      <span class="preview-tag">JavaScript</span>
-      <span class="preview-tag">前端开发</span>
-    </div>
-    <p class="preview-description">
-      本文将深入探讨 React Hooks 的工作原理，包括常见的使用场景、性能优化技巧，以及自定义 Hook 的最佳实践。
-    </p>
-    <div class="progress-container">
-      <div class="progress-bar" style="width: 60%"></div>
-    </div>
-  </div>
-
-  <div class="preview-card">
-    <h2 class="preview-title">Docker 容器化实战指南</h2>
-    <div class="preview-meta">
-      <span>计划发布时间: 2025-01-05</span>
-    </div>
-    <div>
-      <span class="preview-tag">Docker</span>
-      <span class="preview-tag">DevOps</span>
-      <span class="preview-tag">容器化</span>
-    </div>
-    <p class="preview-description">
-      从零开始学习 Docker，包括基础概念、常用命令、Dockerfile 编写，以及在实际项目中的应用案例。
-    </p>
-    <div class="progress-container">
-      <div class="progress-bar" style="width: 30%"></div>
-    </div>
-  </div>
-</div>
-
