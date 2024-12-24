@@ -16,15 +16,15 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="深入理解 React Hooks            计划发布时间: 2024-12-30                 React       JavaScript       前端开发                 本文将深入探讨 React Hooks 的工作原理，包括常见的使用场景、性能优化技巧，以及自定义 Hook 的最佳实践。">
+    <meta name="description" content=".preview-container {     max-width: 800px;     margin: 2rem auto;     padding: 0 1rem;   }      .preview-card {     background: transparent;     border-radius: 8px;     border: 1px solid rgba(125,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="下期预告">
 <meta property="og:url" content="http://s1mplecode.com/coming-soon/index.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="深入理解 React Hooks            计划发布时间: 2024-12-30                 React       JavaScript       前端开发                 本文将深入探讨 React Hooks 的工作原理，包括常见的使用场景、性能优化技巧，以及自定义 Hook 的最佳实践。">
+<meta property="og:description" content=".preview-container {     max-width: 800px;     margin: 2rem auto;     padding: 0 1rem;   }      .preview-card {     background: transparent;     border-radius: 8px;     border: 1px solid rgba(125,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-24T02:14:25.000Z">
-<meta property="article:modified_time" content="2024-12-24T03:00:36.509Z">
+<meta property="article:modified_time" content="2024-12-24T03:28:16.642Z">
 <meta property="article:author" content="Jago">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -183,6 +183,18 @@
           
           
             <li class="nav-item">
+              <a class="nav-link" href="/coming-soon/" target="_self">
+                <i class="iconfont icon-plan"></i>
+                <span>coming-soon</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
@@ -259,7 +271,70 @@
                 
 
 <article class="page-content">
-  <div class="preview-container">
+  <style>
+  .preview-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .preview-card {
+    background: transparent;
+    border-radius: 8px;
+    border: 1px solid rgba(125, 125, 125, 0.2);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease;
+    backdrop-filter: blur(5px);
+  }
+  
+  .preview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .preview-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .preview-meta {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+  
+  .preview-description {
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+  
+  .preview-tag {
+    display: inline-block;
+    background: rgba(125, 125, 125, 0.1);
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .progress-container {
+    margin-top: 1rem;
+    background: rgba(125, 125, 125, 0.1);
+    border-radius: 10px;
+    height: 8px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(to right, #64b5f6, #2196f3);
+    transition: width 0.3s ease;
+  }
+</style>
+
+<div class="preview-container">
   <div class="preview-card">
     <h2 class="preview-title">深入理解 React Hooks</h2>
     <div class="preview-meta">
@@ -296,70 +371,6 @@
     </div>
   </div>
 </div>
-
-<style>
-  .preview-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  .preview-card {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: transform 0.2s ease;
-  }
-  
-  .preview-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  }
-  
-  .preview-title {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-  }
-  
-  .preview-meta {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    margin-bottom: 1rem;
-  }
-  
-  .preview-description {
-    color: #34495e;
-    line-height: 1.6;
-  }
-  
-  .preview-tag {
-    display: inline-block;
-    background: #e0f2f1;
-    color: #009688;
-    padding: 0.2rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .progress-container {
-    margin-top: 1rem;
-    background: #f0f0f0;
-    border-radius: 10px;
-    height: 8px;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    border-radius: 10px;
-    background: linear-gradient(to right, #4CAF50, #8BC34A);
-    transition: width 0.3s ease;
-  }
-</style>
 
 
 
