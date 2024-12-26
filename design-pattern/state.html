@@ -16,24 +16,23 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.查看npm当前版本 1npm -v  2.清理npm缓存数据 1npm cache clean --force  3.更新到最新版本 1npm install -g npm  4.更新到指定版本 1npm -g install npm@10.4.0  或者 1npm i npm@10.4.0 -g">
+    <meta name="description" content="允许对象在其内部状态发生变化时动态地改变其行为，优化程序的响应能力">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm更新升级">
-<meta property="og:url" content="http://s1mplecode.com/45f6034.html">
+<meta property="og:title" content="设计模式之状态模式">
+<meta property="og:url" content="http://s1mplecode.com/design-pattern/state.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="1.查看npm当前版本 1npm -v  2.清理npm缓存数据 1npm cache clean --force  3.更新到最新版本 1npm install -g npm  4.更新到指定版本 1npm -g install npm@10.4.0  或者 1npm i npm@10.4.0 -g">
+<meta property="og:description" content="允许对象在其内部状态发生变化时动态地改变其行为，优化程序的响应能力">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-20T14:12:48.000Z">
-<meta property="article:modified_time" content="2024-12-17T15:24:28.608Z">
+<meta property="article:published_time" content="2024-12-26T10:20:14.000Z">
+<meta property="article:modified_time" content="2024-12-26T14:37:34.182Z">
 <meta property="article:author" content="Jago">
-<meta property="article:tag" content="npm">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>npm更新升级 - 简单代码</title>
+  <title>设计模式之状态模式 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -250,7 +249,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="npm更新升级"></span>
+            <span id="subtitle" data-typed-text="设计模式之状态模式"></span>
           
         </div>
 
@@ -261,8 +260,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-20 22:12" pubdate>
-          2024年4月20日 晚上
+        <time datetime="2024-12-26 18:20" pubdate>
+          2024年12月26日 晚上
         </time>
       </span>
     
@@ -273,7 +272,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44 字
+          437 字
         
       </span>
     
@@ -284,7 +283,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -329,12 +328,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">npm更新升级</h1>
+            <h1 id="seo-header">设计模式之状态模式</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-17T23:24:28+08:00
+                    本文最后更新于 2024-12-26T22:37:34+08:00
                   
                   
 
@@ -344,20 +343,28 @@
             
               <div class="markdown-body">
                 
-                <p>1.查看<code>npm</code>当前版本</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -v<br></code></pre></td></tr></table></figure>
-
-<p>2.清理<code>npm</code>缓存数据</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm cache clean --force<br></code></pre></td></tr></table></figure>
-
-<p>3.更新到最新版本</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm install -g npm<br></code></pre></td></tr></table></figure>
-
-<p>4.更新到指定版本</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm -g install npm@10.4.0<br></code></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">npm i npm@10.4.0 -g<br></code></pre></td></tr></table></figure>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>状态模式（State），当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>本地化特定状态的行为，并为不同的状态划分行为<br>消除庞大的条件分支语句，通过把各种状态转移逻辑分布到State的子类之间，来减少相互间的依赖</p>
+<blockquote>
+<p>本地化在这里的意思是将与特定状态相关的行为封装起来，独立管理，从而实现清晰的状态划分和行为隔离，通过定义新的子类可以很容易地增加新的状态和转换
+  </p>
+</blockquote>
+</li>
+<li><p>使状态转换显式化，清楚地定义状态及其之间的关系：每个状态的可能转换方向和条件是明确的，而不是隐藏在代码的逻辑中</p>
+</li>
+<li><p><a href="https://s1mplecode.com/design-pattern/reusable-state-objects">可重用状态对象</a>可以在Java中的各种上下文之间有效地共享，从而增强内存管理和性能</p>
+</li>
+</ul>
+<h2 id="什么时候使用状态模式"><a href="#什么时候使用状态模式" class="headerlink" title="什么时候使用状态模式"></a>什么时候使用状态模式</h2><ul>
+<li>对象的行为取决于它的状态，并且它必须在运行时根据状态改变其行为</li>
+<li>操作具有依赖于对象状态的大型的、有多个部分的条件语句，状态模式主要解决的是当控制一个对象状态转换的条件表达式过于复杂时的情况。把状态的判断逻辑转移到表示不同状态的一系列类当中，可以把复杂的判断逻辑简化</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>见<a href="https://s1mplecode.com/design-pattern/reusable-state-objects#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%AE%A2%E5%8D%95%E7%8A%B6%E6%80%81%E5%85%B1%E4%BA%AB">可重用状态对象</a></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>可能导致大量的状态类</li>
+<li>上下文类会因状态转换逻辑而变得复杂</li>
+</ul>
 
                 
               </div>
@@ -376,7 +383,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/nodejs/" class="category-chain-item">nodejs</a>
+  <a href="/categories/design-pattern/" class="category-chain-item">design-pattern</a>
   
   
 
@@ -388,13 +395,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/npm/" class="print-no-link">#npm</a>
-      
-    </div>
-  
 </div>
 
 
@@ -403,8 +403,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>npm更新升级</div>
-      <div>http://s1mplecode.com/45f6034.html</div>
+      <div>设计模式之状态模式</div>
+      <div>http://s1mplecode.com/design-pattern/state.html</div>
     </div>
     <div class="license-meta">
       
@@ -416,7 +416,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月20日</div>
+          <div>2024年12月26日</div>
         </div>
       
       
@@ -460,9 +460,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/37fc8d59.html" title="nvm常用命令">
+                      <a href="/design-pattern/reusable-state-objects.html" title="状态模式之可重用对象">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">nvm常用命令</span>
+                        <span class="hidden-mobile">状态模式之可重用对象</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -470,8 +470,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/666010b5.html" title="nvm&amp;npm更新淘宝镜像源">
-                        <span class="hidden-mobile">nvm&amp;npm更新淘宝镜像源</span>
+                      <a href="/design-pattern/abstract-factory.html" title="设计模式之抽象工厂模式">
+                        <span class="hidden-mobile">设计模式之抽象工厂模式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
