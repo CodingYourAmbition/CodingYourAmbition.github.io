@@ -16,24 +16,23 @@
   <meta name="author" content="Jago">
   <meta name="keywords" content="">
   
-    <meta name="description" content="测试多端同步">
+    <meta name="description" content="捕获对象的内部状态，使其在任何时间点都可以容易地存储和恢复对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="synctest">
-<meta property="og:url" content="http://s1mplecode.com/2b5a1e45.html">
+<meta property="og:title" content="设计模式之备忘录模式">
+<meta property="og:url" content="http://s1mplecode.com/design-pattern/memento.html">
 <meta property="og:site_name" content="简单代码">
-<meta property="og:description" content="测试多端同步">
+<meta property="og:description" content="捕获对象的内部状态，使其在任何时间点都可以容易地存储和恢复对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-11T15:16:27.000Z">
-<meta property="article:modified_time" content="2024-12-17T15:24:28.608Z">
+<meta property="article:published_time" content="2025-01-01T08:06:01.000Z">
+<meta property="article:modified_time" content="2025-01-01T08:22:18.939Z">
 <meta property="article:author" content="Jago">
-<meta property="article:tag" content="test">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>synctest - 简单代码</title>
+  <title>设计模式之备忘录模式 - 简单代码</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -250,7 +249,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="synctest"></span>
+            <span id="subtitle" data-typed-text="设计模式之备忘录模式"></span>
           
         </div>
 
@@ -261,8 +260,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-11 23:16" pubdate>
-          2024年4月11日 晚上
+        <time datetime="2025-01-01 16:06" pubdate>
+          2025年1月1日 下午
         </time>
       </span>
     
@@ -273,7 +272,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6 字
+          570 字
         
       </span>
     
@@ -284,7 +283,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -329,12 +328,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">synctest</h1>
+            <h1 id="seo-header">设计模式之备忘录模式</h1>
             
               <p id="updated-time" class="note note-info" style="display: none">
                 
                   
-                    本文最后更新于 2024-12-17T23:24:28+08:00
+                    本文最后更新于 2025-01-01T16:22:18+08:00
                   
                   
 
@@ -344,7 +343,26 @@
             
               <div class="markdown-body">
                 
-                <h2 id="测试多端同步"><a href="#测试多端同步" class="headerlink" title="测试多端同步"></a>测试多端同步</h2>
+                <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>备忘录（Memento）：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>保留封装边界</li>
+<li>创建者不需要直接管理版本历史或撤销功能，简化了创建者</li>
+</ul>
+<h2 id="什么时候使用备忘录模式"><a href="#什么时候使用备忘录模式" class="headerlink" title="什么时候使用备忘录模式"></a>什么时候使用备忘录模式</h2><ul>
+<li>需要在Java中捕获对象的状态，然后在不暴露其内部结构的情况下恢复它这对于维护封装和简化对象状态的管理至关重要</li>
+<li>直接获取状态的接口将暴露实现细节并破坏对象的封装</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>星体随着时间发生变化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 星体类型</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">StarType</span> &#123;<br>  SUN(<span class="hljs-string">&quot;sun&quot;</span>),<br>  RED_GIANT(<span class="hljs-string">&quot;red giant&quot;</span>),<br>  WHITE_DWARF(<span class="hljs-string">&quot;white dwarf&quot;</span>),<br>  SUPERNOVA(<span class="hljs-string">&quot;supernova&quot;</span>),<br>  DEAD(<span class="hljs-string">&quot;dead star&quot;</span>);<br>  <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 星体备忘录和星体类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">StarMemento</span> &#123;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Star</span> &#123;<br><br>    <span class="hljs-keyword">private</span> StarType type;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> ageYears;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> massTons;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Star</span><span class="hljs-params">(StarType startType, <span class="hljs-type">int</span> startAge, <span class="hljs-type">int</span> startMass)</span> &#123;<br>        <span class="hljs-built_in">this</span>.type = startType;<br>        <span class="hljs-built_in">this</span>.ageYears = startAge;<br>        <span class="hljs-built_in">this</span>.massTons = startMass;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">timePasses</span><span class="hljs-params">()</span> &#123;<br>        ageYears *= <span class="hljs-number">2</span>;<br>        massTons *= <span class="hljs-number">8</span>;<br>        <span class="hljs-keyword">switch</span> (type) &#123;<br>            <span class="hljs-keyword">case</span> RED_GIANT -&gt; type = StarType.WHITE_DWARF;<br>            <span class="hljs-keyword">case</span> SUN -&gt; type = StarType.RED_GIANT;<br>            <span class="hljs-keyword">case</span> SUPERNOVA -&gt; type = StarType.DEAD;<br>            <span class="hljs-keyword">case</span> WHITE_DWARF -&gt; type = StarType.SUPERNOVA;<br>            <span class="hljs-keyword">case</span> DEAD -&gt; &#123;<br>                ageYears *= <span class="hljs-number">2</span>;<br>                massTons = <span class="hljs-number">0</span>;<br>            &#125;<br>            <span class="hljs-keyword">default</span> -&gt; &#123;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    StarMemento <span class="hljs-title function_">getMemento</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">var</span> <span class="hljs-variable">state</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StarMementoInternal</span>();<br>        state.setAgeYears(ageYears);<br>        state.setMassTons(massTons);<br>        state.setType(type);<br>        <span class="hljs-keyword">return</span> state;<br>    &#125;<br><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMemento</span><span class="hljs-params">(StarMemento memento)</span> &#123;<br>        <span class="hljs-type">var</span> <span class="hljs-variable">state</span> <span class="hljs-operator">=</span> (StarMementoInternal) memento;<br>        <span class="hljs-built_in">this</span>.type = state.getType();<br>        <span class="hljs-built_in">this</span>.ageYears = state.getAgeYears();<br>        <span class="hljs-built_in">this</span>.massTons = state.getMassTons();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> String.format(<span class="hljs-string">&quot;%s age: %d years mass: %d tons&quot;</span>, type.toString(), ageYears, massTons);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StarMementoInternal</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">StarMemento</span> &#123;<br><br>        <span class="hljs-keyword">private</span> StarType type;<br>        <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> ageYears;<br>        <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> massTons;<br><br>        <span class="hljs-comment">// setters and getters -&gt;</span><br>        <span class="hljs-comment">// ...</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">var</span> <span class="hljs-variable">states</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;StarMemento&gt;();<br><br>    <span class="hljs-type">var</span> <span class="hljs-variable">star</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Star</span>(StarType.SUN, <span class="hljs-number">10000000</span>, <span class="hljs-number">500000</span>);<br>    LOGGER.info(star.toString());<br>    states.add(star.getMemento());<br>    star.timePasses();<br>    LOGGER.info(star.toString());<br>    states.add(star.getMemento());<br>    star.timePasses();<br>    LOGGER.info(star.toString());<br>    states.add(star.getMemento());<br>    star.timePasses();<br>    LOGGER.info(star.toString());<br>    states.add(star.getMemento());<br>    star.timePasses();<br>    LOGGER.info(star.toString());<br>    <span class="hljs-keyword">while</span> (!states.isEmpty()) &#123;<br>        star.setMemento(states.pop());<br>        LOGGER.info(star.toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">14:09:15.878 [main] INFO com.iluwatar.memento.App -- sun age: 10000000 years mass: 500000 tons<br>14:09:15.880 [main] INFO com.iluwatar.memento.App -- red giant age: 20000000 years mass: 4000000 tons<br>14:09:15.880 [main] INFO com.iluwatar.memento.App -- white dwarf age: 40000000 years mass: 32000000 tons<br>14:09:15.880 [main] INFO com.iluwatar.memento.App -- supernova age: 80000000 years mass: 256000000 tons<br>14:09:15.880 [main] INFO com.iluwatar.memento.App -- dead star age: 160000000 years mass: 2048000000 tons<br>14:09:15.880 [main] INFO com.iluwatar.memento.App -- supernova age: 80000000 years mass: 256000000 tons<br>14:09:15.880 [main] INFO com.iluwatar.memento.App -- white dwarf age: 40000000 years mass: 32000000 tons<br>14:09:15.881 [main] INFO com.iluwatar.memento.App -- red giant age: 20000000 years mass: 4000000 tons<br>14:09:15.881 [main] INFO com.iluwatar.memento.App -- sun age: 10000000 years mass: 500000 tons<br></code></pre></td></tr></table></figure>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>如果保存了大量的状态，可能会消耗过多内存</li>
+<li>必须小心管理备忘录的生命周期，以避免内存泄漏</li>
+</ul>
+
                 
               </div>
             
@@ -362,7 +380,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/test/" class="category-chain-item">test</a>
+  <a href="/categories/design-pattern/" class="category-chain-item">design-pattern</a>
   
   
 
@@ -374,13 +392,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/test/" class="print-no-link">#test</a>
-      
-    </div>
-  
 </div>
 
 
@@ -389,8 +400,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>synctest</div>
-      <div>http://s1mplecode.com/2b5a1e45.html</div>
+      <div>设计模式之备忘录模式</div>
+      <div>http://s1mplecode.com/design-pattern/memento.html</div>
     </div>
     <div class="license-meta">
       
@@ -402,7 +413,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月11日</div>
+          <div>2025年1月1日</div>
         </div>
       
       
@@ -446,9 +457,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/sync.html" title="Hexo博客同步步骤">
+                      <a href="/design-pattern/composite.html" title="设计模式之组合模式">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hexo博客同步步骤</span>
+                        <span class="hidden-mobile">设计模式之组合模式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -456,8 +467,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/7a6a6b5a.html" title="测试文章">
-                        <span class="hidden-mobile">测试文章</span>
+                      <a href="/problem/redis-1.html" title="记一个Windows下Redis的坑">
+                        <span class="hidden-mobile">记一个Windows下Redis的坑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

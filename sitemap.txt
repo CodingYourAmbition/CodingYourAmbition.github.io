@@ -1,3 +1,5 @@
+http://s1mplecode.com/design-pattern/composite.html
+http://s1mplecode.com/design-pattern/memento.html
 http://s1mplecode.com/design-pattern/adapter.html
 http://s1mplecode.com/problem/redis-1.html
 http://s1mplecode.com/design-pattern/state.html
