@@ -1,3 +1,5 @@
+http://s1mplecode.com/design-pattern/adapter.html
+http://s1mplecode.com/problem/redis-1.html
 http://s1mplecode.com/design-pattern/state.html
 http://s1mplecode.com/design-pattern/reusable-state-objects.html
 http://s1mplecode.com/design-pattern/abstract-factory.html
@@ -46,3 +48,4 @@ http://s1mplecode.com/categories/method/
 http://s1mplecode.com/categories/Photo/
 http://s1mplecode.com/categories/design-pattern/
 http://s1mplecode.com/categories/design-pattern/state/
+http://s1mplecode.com/categories/redis/

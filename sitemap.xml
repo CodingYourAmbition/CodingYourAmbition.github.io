@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://s1mplecode.com/design-pattern/adapter.html</loc>
+    
+    <lastmod>2025-01-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s1mplecode.com/problem/redis-1.html</loc>
+    
+    <lastmod>2024-12-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://s1mplecode.com/design-pattern/state.html</loc>
     
     <lastmod>2024-12-26</lastmod>
@@ -229,7 +247,7 @@
 
   <url>
     <loc>http://s1mplecode.com/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -237,63 +255,63 @@
   
   <url>
     <loc>http://s1mplecode.com/tags/JS/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/String/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/npm/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/nvm/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/test/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/tips/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/gossip/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/tags/s1mple/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -302,91 +320,98 @@
   
   <url>
     <loc>http://s1mplecode.com/categories/proxy/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/java/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/proxy/GitHub/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/Java/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/nodejs/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/proxy/GitHub/Git/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/test/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/font/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/method/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/Photo/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/design-pattern/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://s1mplecode.com/categories/design-pattern/state/</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://s1mplecode.com/categories/redis/</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
