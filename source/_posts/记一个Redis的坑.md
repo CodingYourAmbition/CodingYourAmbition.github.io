@@ -42,5 +42,11 @@ redis-server --service-uninstall
 // 重命名服务
 redis-server --service-name name
 ```
+## 12.29日更新
+### 上述问题出现的原因
+Redis的官方版本并不支持Windows平台。Redis是为类Unix系统（如Linux和macOS）设计的，官方团队没有提供正式的Windows版本。因此，所有 Windows 上的 Redis 都是由社区贡献的移植版本
+[这个版本](https://github.com/redis-windows/redis-windows/releases)可以一键安装为Windows服务
+[详见](https://www.zhihu.com/question/424272611/answer/2611312760)
 
-
+### 另一个兼容Windows的Redis版本：Memurai
+[Memurai](https://www.memurai.com/)是Windows平台下Redis的兼容实现。它旨在提供企业级Windows环境所需的可靠性和性能。与Redis一样，Memurai使用基于内存的数据结构来大幅提升性能，并且Memurai支持了所有Redis功能，下载后直接安装就可以注册为Windows服务，不过命令和Redis有点不同，需使用memurai-cli，memurai.conf等
